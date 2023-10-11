@@ -1,0 +1,96 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Ganti dengan warna latar belakang yang Anda inginkan */
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 24px;
+    margin-left: 20px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0; /* Menghilangkan margin kanan pada elemen terakhir */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px ;
+    height: 129px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Mengatur elemen berbaris dari atas ke bawah */
+    align-items: center;
+    text-align: center; /* Mengatur teks menjadi tengah */
+}
+
+.footer-logo h2 {
+    font-size: 28px;
+}
+
+.footer-links ul {
+    list-style: none;
+    display: flex; /* Mengatur tautan menjadi berbaris */
+}
+
+.footer-links ul li {
+    margin-right: 20px; /* Jarak antara tautan */
+}
+
+.footer-links ul li:last-child {
+    margin-right: 0; /* Menghilangkan margin kanan pada elemen terakhir */
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+}
+
