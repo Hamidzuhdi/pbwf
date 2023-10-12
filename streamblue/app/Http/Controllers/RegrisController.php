@@ -42,6 +42,6 @@ class RegrisController extends Controller
 
         session()->flash('sukses', 'Terimakasih registrasi anda berhasil');
 
-        return redirect('/')->with('success', 'Account berhasil disimpan.');
+        return redirect('/langganan')->with('success', 'Account berhasil disimpan.');
     }
 }

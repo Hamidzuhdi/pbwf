@@ -1,0 +1,11 @@
+1 ada pilihan register
+2 di register ada pilihan sudah punya akun?
+3 jika di klik lgsung login
+4 kalau belum pernah beli tidak mungkin bisa login
+5 kalau belum punya akun maka akan register
+6 lalu ketika register berhasil maka ketika klik sign in maka akan ke halaman pembelian (hrs dikunci sampai proses bisnis selesai)
+7  beli paket dengan 2 pilihan
+8 paket ada ucl dan paket tidak ada ucl
+9 nnti harga dari bulan yang dipilih (ditetapkan harga tiap bulan)
+10 ketika proses bisnis selesai (sampai tahap pembayaran) maka akan ke redirect ke login
+11 auth login terdapat pilihan watch live

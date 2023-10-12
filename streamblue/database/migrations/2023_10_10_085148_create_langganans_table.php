@@ -16,8 +16,9 @@ return new class extends Migration
             $table->timestamps();
             $table->boolean('tipe');
             $table->integer('harga');
-            $table->date('durasi');
-            $table->boolean('extends');
+            $table->integer('durasi');
+            $table->boolean('extends')->nullable();
+
         });
     }
 

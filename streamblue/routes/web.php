@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegrisController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LanggananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,17 @@ Route::get('/', function () {
 Route::get('/live', function () {
     return view('live');
 });
+
+Route::get('/pemesanan', function () {
+    return view('pemesanan');
+});
+
+Route::get('/langganan',[LanggananController::class, 'index']);
+Route::get('/tambalangganan', [LanggananController::class, 'create']);
+Route::post('/tambalangganan', [LanggananController::class, 'store']);
+// Route::delete('/event/delete', [EventController::class, 'destroy']);
+// Route::get('/tampildataevent/{id}/edit', [EventController::class, 'edit']);
+// Route::put('/tampildataevent/{id}', [EventController::class, 'update']);
 
 Route::get('regris', [RegrisController::class, 'create'])->name('regris');
 Route::post('regris', [RegrisController::class, 'store'])->name('regris');

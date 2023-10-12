@@ -1,0 +1,54 @@
+/* body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.pilih {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.tanggal {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.mahal, .murah {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: center;
+}
+
+.card-header img {
+    width: 200px;
+    height: 100px;
+} */
+
+.pilih {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.card {
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+.card img {
+    width: 200px;
+    height: 100px;
+}
+/* Untuk memberi warna latar belakang yang berbeda */
+.card:nth-child(odd) {
+    background-color: #f2f2f2;
+}
