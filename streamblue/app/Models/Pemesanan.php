@@ -11,6 +11,8 @@ class Pemesanan extends Model
 
     protected $fillable = [
         'tgl_pesan',
+        'harga',
+        'durasi',
         'user_id',
         'langganan_id'
     ];

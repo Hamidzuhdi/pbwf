@@ -11,9 +11,9 @@ class Langganan extends Model
 
     protected $fillable = [
         'tipe',
-        'harga',
-        'durasi',
-        'extends'
+        'ket',
+        'gambar',
+        'harga'
     ];
 
     protected $guarded = ['id'];

@@ -10,7 +10,7 @@
 @endsection
 
 @section('sambung')
-<div class="container">
+{{-- <div class="container">
     <h1>Jadwal Pertandingan Sepak Bola</h1>
 
     <div class="match">
@@ -52,5 +52,20 @@
         <p>Stadion: Stadion Nasional</p>
         <p>Waktu: 15:30 WIB</p>
     </div>
-</div>
+</div> --}}
+<h1>Jadwal Pertandingan Sepak Bola</h1>
+
+@foreach($pertandingans as $pertandingan)
+    <div class="match">
+        <p class="tgl_pertandingan">{{ $pertandingan->tgl_pertandingan }}</p>
+        <div class="team">
+            <span class="nama_pertandingan">{{ $pertandingan->nama_pertandingan }}</span>
+        </div>
+        <p>Stadion: Stadion Utama</p>
+        <a href="/tampildatapertandingan/{{ $pertandingan->id }}/edit" class="btn btn-sm btn-primary">Edit</a>
+    </div>
+@endforeach
+
+
+<a href="/tambapertandingan" class="btn btn-sm btn-success" style="margin-left: 200px">Tambah Pertandingan Baru</a>
 @endsection

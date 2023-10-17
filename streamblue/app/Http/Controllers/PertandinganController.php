@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Langganan;
+use App\Models\Pertandingan;
 use Illuminate\Support\Facades\DB;
 
-class LanggananController extends Controller
+class PertandinganController extends Controller
 {
     public function index()
     {
-        $langganans = Langganan::all();
-        return view('langganan', compact('langganans'));
+        $pertandingans = Pertandingan::all();
+        return view('jadwal', compact('pertandingans'));
     }
 
    public function create()
    {
-       $langganans = Langganan::all();
-       return view('tambalangganan', compact('langganans'));
+       $pertandingans = Pertandingan::all();
+       return view('tambapertandingan', compact('pertandingans'));
    }
 
 
@@ -30,15 +30,15 @@ class LanggananController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'tipe' => 'required|boolean',
-            'ket' => 'required|string',
-            'gambar' => 'required|string',
-            'harga' => 'required|integer'
+            'tgl_pertandingan' => 'required|date',
+            'nama_pertandingan' => 'required|string',
+            'user_id' => 'required|integer',
+            'langganan_id' => 'required|integer'
         ]);
 
-        Langganan::create($validatedData);
+        Pertandingan::create($validatedData);
 
-        return redirect('/langganan')->with('success', 'Langganan berhasil disimpan.');
+        return redirect('/jadwal')->with('success', 'Pertandingan berhasil disimpan.');
     }
 
 
@@ -52,21 +52,20 @@ class LanggananController extends Controller
 
    public function edit($id)
    {
-       $langganan = DB::table('langganans')->where('id',$id)->first();
-       return view('tambadatalangganan', ['langganan' => $langganan]);
+       $pertandingan = DB::table('pertandingans')->where('id',$id)->first();
+       return view('tambadatapertandingan', ['pertandingan' => $pertandingan]);
    }
 
        public function update(Request $request, $id)
    {
        $validatedData = $request->validate([
-        'ket' => 'required|string',
-        'gambar' => 'required|string',
-        'harga' => 'required|integer'
+        'tgl_pertandingan' => 'required|date',
+        'nama_pertandingan' => 'required|string'
        ]);
 
-       DB::table('langganans')->where('id', $id)->update($validatedData);
+       DB::table('pertandingans')->where('id', $id)->update($validatedData);
 
-       return redirect('/langganan');
+       return redirect('/jadwal');
    }
 
 

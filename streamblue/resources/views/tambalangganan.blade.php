@@ -23,16 +23,16 @@
     <input type="checkbox" name="tipe" id="tipe" value="1"> <!-- Ini akan menjadi true jika dicentang -->
     <br><br>
 
+    <label for="ket">Keterangan Langganan</label>
+    <input type="text" name="ket" id="ket" required>
+    <br><br>
+
+    <label for="gambar">Gambar:</label>
+    <input type="file" name="gambar" id="gambar">
+    <br><br>
+
     <label for="harga">Harga:</label>
     <input type="number" name="harga" id="harga" required>
-    <br><br>
-
-    <label for="durasi">Durasi (bulan):</label>
-    <input type="number" name="durasi" id="durasi" required>
-    <br><br>
-
-    <label for="extends">Diperpanjang?</label>
-    <input type="checkbox" name="extends" id="extends">
     <br><br>
 
     <button type="submit">Add</button>

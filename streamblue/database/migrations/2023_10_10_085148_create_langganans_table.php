@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->boolean('tipe');
+            $table->string('ket',100);
+            $table->string('gambar',100);
             $table->integer('harga');
-            $table->integer('durasi');
-            $table->boolean('extends')->nullable();
-
         });
     }
 

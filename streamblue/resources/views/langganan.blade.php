@@ -9,21 +9,23 @@
 </head>
 <body>
     <div class="pilih">
-        @foreach($langganans as $index => $langganan)
-            <div class="card">
-                <div class="card-header">
-                    <a href="/langganan">
-                        <img src="{{ $index % 2 == 0 ? 'gambar/ucl.jpeg' : 'gambar/noucl.jpeg' }}" alt="satu_{{ $index }}" class="gambar-langganan">
-                    </a>
-                </div>
-                <div class="card-body">
-                    <p class="m-0">EPL, LALIGA, SERI A, LIGUE 1, BUNDESLIGA {{ $index % 2 == 0 ? '+ UCL' : '- UCL' }}</p>
-                </div>
-                <div class="card-footer">
-                    <p class="m-0">{{ $langganan->harga }} / bulan</p>
-                </div>
+    @foreach($langganans as $langganan)
+        <div class="card">
+            <div class="card-body">
+                <p class="m-0">{{ $langganan->ket }} {{ $langganan->tipe ? '+ UCL' : '- UCL' }}</p>
             </div>
-        @endforeach
+            <div class="card-header">
+                <a href="/pemesanan">
+                    <img src="{{ asset('gambar/'.$langganan->gambar) }}" alt="{{ $langganan->gambar }}" class="gambar-langganan">
+                </a>
+            </div>
+            <div class="card-footer">
+                <p class="m-0">{{ $langganan->harga }} / bulan</p>
+            </div>
+            <a href="/tampildatalangganan/{{ $langganan->id }}/edit" class="btn btn-sm btn-primary">Edit</a>
+        </div>
+    @endforeach
+
     </div>
     <a href="/tambalangganan" class="btn btn-sm btn-success" style="margin-left: 200px">Tambah Langganan Baru</a>
 </body>

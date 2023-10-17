@@ -9,3 +9,12 @@
 9 nnti harga dari bulan yang dipilih (ditetapkan harga tiap bulan)
 10 ketika proses bisnis selesai (sampai tahap pembayaran) maka akan ke redirect ke login
 11 auth login terdapat pilihan watch live
+
+simpan untuk di tambah pesanan
+    <label for="harga">Harga:</label>
+    <input type="number" name="harga" id="harga" required>
+    <br><br>
+
+    <label for="durasi">Durasi (bulan):</label>
+    <input type="number" name="durasi" id="durasi" required>
+    <br><br>
