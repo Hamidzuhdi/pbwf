@@ -14,6 +14,12 @@ class PertandinganController extends Controller
         return view('jadwal', compact('pertandingans'));
     }
 
+    public function cuy()
+    {
+        $pertandingans = Pertandingan::all();
+        return view('live', compact('pertandingans'));
+    }
+
    public function create()
    {
        $pertandingans = Pertandingan::all();
@@ -32,6 +38,7 @@ class PertandinganController extends Controller
         $validatedData = $request->validate([
             'tgl_pertandingan' => 'required|date',
             'nama_pertandingan' => 'required|string',
+            'liga' => 'required|string',
             'user_id' => 'required|integer',
             'langganan_id' => 'required|integer'
         ]);
@@ -60,7 +67,8 @@ class PertandinganController extends Controller
    {
        $validatedData = $request->validate([
         'tgl_pertandingan' => 'required|date',
-        'nama_pertandingan' => 'required|string'
+        'nama_pertandingan' => 'required|string',
+        'liga' => 'required|string',
        ]);
 
        DB::table('pertandingans')->where('id', $id)->update($validatedData);

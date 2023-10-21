@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->dateTime('tgl_pertandingan');
             $table->string('nama_pertandingan',20);
+            $table->string('liga',10);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('langganan_id');

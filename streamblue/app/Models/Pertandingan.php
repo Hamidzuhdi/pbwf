@@ -12,6 +12,7 @@ class Pertandingan extends Model
     protected $fillable = [
         'tgl_pertandingan',
         'nama_pertandingan',
+        'liga',
         'user_id',
         'langganan_id'
     ];

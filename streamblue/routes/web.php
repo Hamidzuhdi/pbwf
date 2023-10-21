@@ -45,6 +45,7 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/jadwal',[PertandinganController::class, 'index']);
+Route::get('/live',[PertandinganController::class, 'cuy']);
 Route::get('/tambapertandingan', [PertandinganController::class, 'create']);
 Route::post('/tambapertandingan', [PertandinganController::class, 'store']);
 Route::delete('/event/delete', [EventController::class, 'destroy']);

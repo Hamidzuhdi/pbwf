@@ -26,6 +26,10 @@
     <input type="text" name="nama_pertandingan" id="nama_pertandingan" required>
     <br><br>
 
+    <label for="liga">Liga</label>
+    <input type="text" name="liga" id="liga" required>
+    <br><br>
+
     <label for="user_id">User Id:</label>
     <input type="number" name="user_id" id="user_id" required>
     <br><br>

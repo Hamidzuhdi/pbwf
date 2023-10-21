@@ -27,6 +27,10 @@
     <input type="text" name="nama_pertandingan" id="nama_pertandingan" value="{{ $pertandingan->nama_pertandingan }}" required>
     <br><br>
 
+    <label for="liga">Nama Liga</label>
+    <input type="text" name="liga" id="liga" value="{{ $pertandingan->liga }}" required>
+    <br><br>
+
     <button type="submit">Update</button>
 </form>
 

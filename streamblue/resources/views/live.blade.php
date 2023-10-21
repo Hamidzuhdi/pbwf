@@ -10,26 +10,73 @@
 @endsection
 @section('sambung')
 <body>
-    <div>
-        <h3>League 1</h3>
-    </div>
-    <div class="Bungkus">
-
-        <div class="Pertama">
-            <h6>PSG vs Monaco</h6>
-        </div>
-
-        <div class="P-Dua">
-            <h6>Jam 18.50</h6>
-
-        </div>
-
+    @foreach ($pertandingans as $pertandingan)
         <div>
-            <a href="#">
-                <i class="bi bi-tv-fill"></i>
-            </a>
+            <h3 class="liga">{{ $pertandingan->liga }}</h3>
         </div>
-
-    </div>
+    @endforeach
+    @foreach ($pertandingans as $pertandingan )
+        @if ($pertandingan->liga == 'epl')
+        {{-- <div>
+            <h3 class="liga">{{ $pertandingan->liga }}</h3>
+        </div> --}}
+            <div class="Bungkus">
+                <div class="Pertama">
+                    <p class="tgl_pertandingan">{{ $pertandingan->tgl_pertandingan }}</p>
+                    <br>
+                </div>
+                <div class="P-Dua">
+                    <span class="nama_pertandingan">{{ $pertandingan->nama_pertandingan }}</span>
+                    <br>
+                </div>
+                <div>
+                    <a href="#">
+                        <i class="bi bi-tv-fill"></i>
+                    </a>
+                </div>
+            </div>
+        @endif
+        @endforeach
+        {{-- <div>
+            <h3 class="liga">{{ $pertandingan->liga }}</h3>
+        </div>
+            <div class="Bungkus">
+                <div class="Pertama">
+                    <p class="tgl_pertandingan">{{ $pertandingan->tgl_pertandingan }}</p>
+                    <br>
+                </div>
+                <div class="P-Dua">
+                    <span class="nama_pertandingan">{{ $pertandingan->nama_pertandingan }}</span>
+                    <br>
+                </div>
+                <div>
+                    <a href="#">
+                        <i class="bi bi-tv-fill"></i>
+                    </a>
+                </div>
+            </div>
+        @elseif ($pertandingan->liga == 'bundesliga')
+        <div>
+            <h3 class="liga">{{ $pertandingan->liga }}</h3>
+        </div>
+            <div class="Bungkus">
+                <div class="Pertama">
+                    <p class="tgl_pertandingan">{{ $pertandingan->tgl_pertandingan }}</p>
+                    <br>
+                </div>
+                <div class="P-Dua">
+                    <span class="nama_pertandingan">{{ $pertandingan->nama_pertandingan }}</span>
+                    <br>
+                </div>
+                <div>
+                    <a href="#">
+                        <i class="bi bi-tv-fill"></i>
+                    </a>
+                </div>
+            </div>
+        @endif --}}
 </body>
+
 @endsection
+
+
