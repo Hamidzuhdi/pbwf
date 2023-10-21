@@ -40,3 +40,10 @@ body {
     font-size: 28px;
     font-weight: bold;
 }
+
+
+.Bungkus{
+    display: flex;
+    justify-content: space-between;
+    background-color: bisque;
+}

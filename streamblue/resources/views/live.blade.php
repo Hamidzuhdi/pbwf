@@ -9,52 +9,27 @@
     <link rel="stylesheet" href="cantik/c-live.css">
 @endsection
 @section('sambung')
-<div class="container">
+<body>
+    <div>
+        <h3>League 1</h3>
+    </div>
+    <div class="Bungkus">
 
-    <div class="team-names">
-        <span class="team">Chelsea</span>
-        <div class="live-info">
-            <i class="bi bi-tv"></i>
-            <a href="http://">
-            <span class="live-text">Live Now</span>
+        <div class="Pertama">
+            <h6>PSG vs Monaco</h6>
+        </div>
+
+        <div class="P-Dua">
+            <h6>Jam 18.50</h6>
+
+        </div>
+
+        <div>
+            <a href="#">
+                <i class="bi bi-tv-fill"></i>
             </a>
         </div>
-        <span class="team">Barcelonna</span>
+
     </div>
-    <div class="team-names">
-        <span class="team">Juventus</span>
-        <div class="live-info">
-            <i class="bi bi-tv"></i>
-            <a href="http://">
-            <span class="live-text">Live Now</span>
-            </a>
-        </div>
-        <span class="team">Real Madrid</span>
-    </div>
-    <div class="team-names">
-        <span class="team">Man Ciyy</span>
-        <div class="live-info">
-            <i class="bi bi-tv"></i>
-            <a href="http://">
-            <span class="live-text">Live Now</span>
-            </a>
-        </div>
-        <span class="team">PSG</span>
-    </div>
-    <div class="team-names">
-        <span class="team">Bayern</span>
-        <div class="live-info">
-            <i class="bi bi-tv"></i>
-            <a href="http://">
-            <span class="live-text">Live Now</span>
-            </a>
-        </div>
-        <span class="team">Napoli</span>
-    </div>
-    <!-- Letakkan ini di dalam bagian konten halaman Anda -->
-{{-- <div class="live-info">
-    <i class="bi bi-tv"></i>
-    <span class="live-text">Live Now</span>
-</div> --}}
-</div>
+</body>
 @endsection
