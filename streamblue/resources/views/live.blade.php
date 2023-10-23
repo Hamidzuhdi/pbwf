@@ -10,16 +10,16 @@
 @endsection
 @section('sambung')
 <body>
-    @foreach ($pertandingans as $pertandingan)
+    {{-- @foreach ($pertandingans as $pertandingan)
         <div>
-            <h3 class="liga">{{ $pertandingan->liga }}</h3>
+            <h6 class="liga">{{ $pertandingan->liga }}</h3>
         </div>
-    @endforeach
+    @endforeach --}}
     @foreach ($pertandingans as $pertandingan )
         @if ($pertandingan->liga == 'epl')
-        {{-- <div>
-            <h3 class="liga">{{ $pertandingan->liga }}</h3>
-        </div> --}}
+        <div>
+            <h6 class="liga">{{ $pertandingan->liga }}</h6>
+        </div>
             <div class="Bungkus">
                 <div class="Pertama">
                     <p class="tgl_pertandingan">{{ $pertandingan->tgl_pertandingan }}</p>
@@ -35,10 +35,9 @@
                     </a>
                 </div>
             </div>
-        @endif
-        @endforeach
-        {{-- <div>
-            <h3 class="liga">{{ $pertandingan->liga }}</h3>
+        @elseif ($pertandingan->liga == 'Laliga')
+        <div>
+            <h6 class="liga">{{ $pertandingan->liga }}</h6>
         </div>
             <div class="Bungkus">
                 <div class="Pertama">
@@ -57,7 +56,7 @@
             </div>
         @elseif ($pertandingan->liga == 'bundesliga')
         <div>
-            <h3 class="liga">{{ $pertandingan->liga }}</h3>
+            <h6 class="liga">{{ $pertandingan->liga }}</h6>
         </div>
             <div class="Bungkus">
                 <div class="Pertama">
@@ -74,7 +73,8 @@
                     </a>
                 </div>
             </div>
-        @endif --}}
+        @endif
+     @endforeach
 </body>
 
 @endsection

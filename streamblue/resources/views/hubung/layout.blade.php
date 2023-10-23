@@ -47,7 +47,7 @@
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-6 text-center text-lg-end my-auto">
+                <div class="col-lg-2 text-center text-lg-end my-auto">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item me-4 ml-10">
                             <a href="#!"><i class="bi-facebook fs-3" id="fb"></i></a>
