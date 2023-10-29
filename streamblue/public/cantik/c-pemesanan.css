@@ -1,0 +1,24 @@
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.card-body {
+    display: flex;
+    align-items: center; /* Untuk vertikal centering */
+}
+
+.desc {
+    margin-left: 10px;
+    /* flex: 1; Ini akan mengambil sisa ruang horizontal */
+    display: flex;
+    justify-content: space-between; /* Untuk meratakan elemen di dalamnya */
+    align-items: center; /* Untuk vertikal centering */
+}
+
+#plus, #min {
+    font-size: 1.5rem;
+    cursor: pointer;
+    user-select: none;
+}

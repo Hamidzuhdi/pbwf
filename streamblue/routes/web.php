@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegrisController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\PertandinganController;
 use App\Http\Controllers\LanggananController;
+use App\Models\Pemesanan;
 use App\Models\Pertandingan;
 
 /*
@@ -26,9 +28,14 @@ Route::get('/live', function () {
     return view('live');
 });
 
-Route::get('/pemesanan', function () {
-    return view('pemesanan');
-});
+Route::get('/pemesanan',[PemesananController::class, 'index']);
+Route::get('/live',[PemesananController::class, 'cuy']);
+Route::get('/tambaPemesanan', [PemesananController::class, 'create']);
+Route::post('/tambaPemesanan', [PemesananController::class, 'store']);
+Route::delete('/event/delete', [EventController::class, 'destroy']);
+Route::get('/tampildataPemesanan/{id}/edit', [PemesananController::class, 'edit']);
+Route::put('/tampildataPemesanan/{id}', [PemesananController::class, 'update']);
+
 
 Route::get('/langganan',[LanggananController::class, 'index']);
 Route::get('/tambalangganan', [LanggananController::class, 'create']);

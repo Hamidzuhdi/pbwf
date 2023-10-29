@@ -11,12 +11,13 @@
     <div class="pilih">
     @foreach($langganans as $langganan)
         <div class="card">
-            <div class="card-body">
+            <div class="card-body" data-langganan-id="{{ $langganan->id }}>
                 <p class="m-0">{{ $langganan->ket }} {{ $langganan->tipe ? '+ UCL' : '- UCL' }}</p>
             </div>
             <div class="card-header">
-                <a href="/pemesanan">
-                    <img src="{{ asset('gambar/'.$langganan->gambar) }}" alt="{{ $langganan->gambar }}" class="gambar-langganan">
+                <a href="/pemesanan?langgananId={{ $langganan->id }}&langgananGambar={{ $langganan->gambar }}">
+                    <!-- Tambahkan atribut data dengan nilai gambar langganan -->
+                    <img src="{{ asset('gambar/' . $langganan->gambar) }}" data-langganan-gambar="{{ $langganan->gambar }}" alt="{{ $langganan->gambar }}" class="gambar-langganan">
                 </a>
             </div>
             <div class="card-footer">
@@ -29,4 +30,26 @@
     </div>
     <a href="/tambalangganan" class="btn btn-sm btn-success" style="margin-left: 200px">Tambah Langganan Baru</a>
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Temukan semua elemen card
+        const pilihs = document.querySelectorAll(".pilih");
+
+        // Tambahkan event click ke setiap pilih
+        pilihs.forEach(pilih => {
+            pilih.addEventListener("click", function() {
+                // Dapatkan data langganan dan gambar dari pilih yang dipilih
+                const langgananId = pilih.querySelector(".pilih-body").getAttribute("data-langganan-id");
+                const langgananGambar = pilih.querySelector(".gambar-langganan").getAttribute("data-langganan-gambar");
+
+                // Arahkan pengguna ke halaman pemesanan dengan data yang dipilih
+                window.location.href = `/pemesanan?langgananId=${langgananId}&langgananGambar=${langgananGambar}`;
+            });
+        });
+    });
+    </script>
+    </html>
+
+
 </html>
