@@ -7,6 +7,8 @@ use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\PertandinganController;
 use App\Http\Controllers\LanggananController;
 use App\Models\Pemesanan;
+use App\Http\Controllers\PembayaranController;
+use App\Models\Pembayaran;
 use App\Models\Pertandingan;
 
 /*
@@ -30,12 +32,19 @@ Route::get('/live', function () {
 
 Route::get('/pemesanan',[PemesananController::class, 'index']);
 Route::get('/live',[PemesananController::class, 'cuy']);
-Route::get('/tambaPemesanan', [PemesananController::class, 'create']);
-Route::post('/tambaPemesanan', [PemesananController::class, 'store']);
+Route::get('/tambapemesanan', [PemesananController::class, 'create']);
+Route::post('/tambapemesanan', [PemesananController::class, 'store']);
 Route::delete('/event/delete', [EventController::class, 'destroy']);
-Route::get('/tampildataPemesanan/{id}/edit', [PemesananController::class, 'edit']);
-Route::put('/tampildataPemesanan/{id}', [PemesananController::class, 'update']);
+Route::get('/tampildatapemesanan/{id}/edit', [PemesananController::class, 'edit']);
+Route::put('/tampildatapemesanan/{id}', [PemesananController::class, 'update']);
 
+Route::get('/pembayaran',[PembayaranController::class, 'index']);
+Route::get('/live',[PembayaranController::class, 'cuy']);
+Route::get('/tambapembayaran', [PembayaranController::class, 'create']);
+Route::post('/tambapembayaran', [PembayaranController::class, 'store']);
+Route::delete('/event/delete', [EventController::class, 'destroy']);
+Route::get('/tampildatapembayaran/{id}/edit', [PembayaranController::class, 'edit']);
+Route::put('/tampildatapembayaran/{id}', [PembayaranController::class, 'update']);
 
 Route::get('/langganan',[LanggananController::class, 'index']);
 Route::get('/tambalangganan', [LanggananController::class, 'create']);

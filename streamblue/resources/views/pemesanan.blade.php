@@ -32,6 +32,8 @@
                             id="total">
                     </div>
                 </p>
+                <br> <br>
+                <a href="/pembayaran" class="btn btn-sm btn-success" style="margin-left: 200px">Pay</a>
             </div>
         </div>
     </div>

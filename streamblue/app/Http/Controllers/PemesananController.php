@@ -17,7 +17,7 @@ class PemesananController extends Controller
 
         // Lakukan apa pun yang perlu Anda lakukan dengan parameter query, misalnya menampilkan gambar langganan
         return view('pemesanan', [
-            'langganans' => $langganans, 
+            'langganans' => $langganans,
             'langgananId' => $langgananId,
             'langgananGambar' => $langgananGambar,
         ]);
