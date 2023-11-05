@@ -10,8 +10,7 @@ class Pembayaran extends Model
     use HasFactory;
 
     protected $fillable = [
-        'tgl_hasil',
-        'tgl_bayar',
+        'total_bayar',
         'pemesanan_id'
     ];
 

@@ -10,8 +10,7 @@ class Pemesanan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'tgl_pesan',
-        'harga',
+        'total_harga',
         'durasi',
         'user_id',
         'langganan_id'

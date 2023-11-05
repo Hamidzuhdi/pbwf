@@ -16,7 +16,7 @@
             <p>Langganan ID: {{ $langgananId }}</p>
             <img src="{{ asset('gambar/' . $langgananGambar) }}" alt="{{ $langgananGambar }}" class="gambar-langganan">
             <div class="desc w-100">
-                <p style="margin-right: 20px"> Price / Duration :
+                <p style="margin-right: 20px"> Price / Duration :     </p>
                 <input type="number" class="form-control border-0 fs-1" id="harga" value="200000">
                     <div class="col-sm-5 d-flex">
                         <button class="rounded-start bg-secondary p-2 border border-0 plus"
@@ -31,9 +31,10 @@
                         <input type="text" class="col-sm-2 form-control w-25 border-0 fs-4 total" name="total" readonly
                             id="total">
                     </div>
-                </p>
-                <br> <br>
-                <a href="/pembayaran" class="btn btn-sm btn-success" style="margin-left: 200px">Pay</a>
+                <div class="btn btn-success">
+                    <i class="fa fa-shopping-cart"></i>
+                    <a href="/pembayaran">Pay</a>
+                </div>
             </div>
         </div>
     </div>

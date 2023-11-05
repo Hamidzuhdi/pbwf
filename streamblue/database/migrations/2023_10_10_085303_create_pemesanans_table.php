@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('pemesanans', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->dateTime('tgl_pesan');
-            $table->integer('harga');
+            $table->integer('total_harga');
             $table->integer('durasi');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

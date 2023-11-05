@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->dateTime('tgl_bayar');
+            $table->integer('total_bayar');
             $table->unsignedBigInteger('pemesanan_id');
             $table->foreign('pemesanan_id')->references('id')->on('pemesanans');
         });

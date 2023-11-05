@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Langganan;
 use App\Models\Pemesanan;
 
-class PemesananController extends Controller
+class TransaksiController extends Controller
 {
     public function index(Request $request)
     {
