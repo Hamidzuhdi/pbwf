@@ -11,16 +11,16 @@
     <div class="pilih">
     @foreach($langganans as $langganan)
         <div class="card">
-            <div class="card-body" data-langganan-id="{{ $langganan->id }}>
+            <div class="card-body" data-langganan-id={{ $langganan->id }}>
                 <p class="m-0">{{ $langganan->ket }} {{ $langganan->tipe ? '+ UCL' : '- UCL' }}</p>
             </div>
             <div class="card-header">
-                <a href="/pemesanan?langgananId={{ $langganan->id }}&langgananGambar={{ $langganan->gambar }}">
+                <a href="/pemesanan?langgananId={{ $langganan->id }}&langgananGambar={{ $langganan->gambar }}&langgananharga={{ $langganan->harga }}">
                     <!-- Tambahkan atribut data dengan nilai gambar langganan -->
                     <img src="{{ asset('gambar/' . $langganan->gambar) }}" data-langganan-gambar="{{ $langganan->gambar }}" alt="{{ $langganan->gambar }}" class="gambar-langganan">
                 </a>
             </div>
-            <div class="card-footer">
+            <div class="card-footer" data-langganan-harga="{{ $langganan->harga }}">
                 <p class="m-0">{{ $langganan->harga }} / bulan</p>
             </div>
             <a href="/tampildatalangganan/{{ $langganan->id }}/edit" class="btn btn-sm btn-primary">Edit</a>
@@ -42,9 +42,10 @@
                 // Dapatkan data langganan dan gambar dari pilih yang dipilih
                 const langgananId = pilih.querySelector(".pilih-body").getAttribute("data-langganan-id");
                 const langgananGambar = pilih.querySelector(".gambar-langganan").getAttribute("data-langganan-gambar");
+                const langgananharga = pilih.querySelector(".card .card-footer").getAttribute("data-langganan-harga");
 
                 // Arahkan pengguna ke halaman pemesanan dengan data yang dipilih
-                window.location.href = `/pemesanan?langgananId=${langgananId}&langgananGambar=${langgananGambar}`;
+                window.location.href = `/pemesanan?langgananId=${langgananId}&langgananGambar=${langgananGambar}&langgananharga=${langgananharga}`;
             });
         });
     });

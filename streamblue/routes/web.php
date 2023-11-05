@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegrisController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\PertandinganController;
 use App\Http\Controllers\LanggananController;
 use App\Models\Pemesanan;
@@ -31,13 +31,13 @@ Route::get('/live', function () {
 });
 
 // INI JADI 1 TRANSAKSI
-Route::get('/pemesanan',[TransaksiController::class, 'index']);
-Route::get('/live',[TransaksiController::class, 'cuy']);
-Route::get('/tambapemesanan', [TransaksiController::class, 'create']);
-Route::post('/tambapemesanan', [TransaksiController::class, 'store']);
+Route::get('/pemesanan',[PemesananController::class, 'index']);
+Route::get('/live',[PemesananController::class, 'cuy']);
+Route::get('/tambapemesanan', [PemesananController::class, 'create']);
+Route::post('/pemesanan', [PemesananController::class, 'store']);
 Route::delete('/event/delete', [EventController::class, 'destroy']);
-Route::get('/tampildatapemesanan/{id}/edit', [TransaksiController::class, 'edit']);
-Route::put('/tampildatapemesanan/{id}', [TransaksiController::class, 'update']);
+Route::get('/tampildatapemesanan/{id}/edit', [PemesananController::class, 'edit']);
+Route::put('/tampildatapemesanan/{id}', [PemesananController::class, 'update']);
 Route::get('/pembayaran',[PembayaranController::class, 'index']);
 Route::get('/pembayaran',[PembayaranController::class, 'prosesPembayaran']);
 Route::get('/live',[PembayaranController::class, 'cuy']);

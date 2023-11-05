@@ -3,15 +3,15 @@ $(document).ready(function () {
         e.preventDefault();
         var card = $(this).closest(".card-body");
         var harga = card.find("#harga").val();
-        var qty = card.find("#qty").val();
+        var durasi = card.find("#durasi").val();
 
-        var tambah = parseInt(qty) + 1;
-        card.find("#qty").val(tambah);
+        var tambah = parseInt(durasi) + 1;
+        card.find("#durasi").val(tambah);
 
         var subtotal = parseInt(harga) * parseInt(tambah);
         card.find(".total").val(subtotal);
 
-        if (qty > 0) {
+        if (durasi > 0) {
             card.find(".minus").prop("disabled", false);
         }
     });
@@ -20,25 +20,25 @@ $(document).ready(function () {
         e.preventDefault();
         var card = $(this).closest(".card-body");
         var harga = card.find("#harga").val();
-        var qty = card.find("#qty").val();
+        var durasi = card.find("#durasi").val();
 
-        var tambah = parseInt(qty) - 1;
-        card.find("#qty").val(tambah);
+        var tambah = parseInt(durasi) - 1;
+        card.find("#durasi").val(tambah);
 
         var subtotal = parseInt(harga) * parseInt(tambah);
         card.find(".total").val(subtotal);
 
-        if (qty <= 1) {
+        if (durasi <= 1) {
             card.find(".minus").prop("disabled", true);
         }
     });
 
-    $(".card-body").each(function () {
+    $(".rowa").each(function () {
         var card = $(this);
         var harga = card.find("#harga").val();
-        var qty = card.find("#qty").val();
-        var total = parseInt(harga) * parseInt(qty);
-        card.find("#total").val(total);
+        var durasi = card.find("#durasi").val();
+        var total_harga = parseInt(harga) * parseInt(durasi);
+        card.find("#total_harga").val(total_harga);
     });
 });
 

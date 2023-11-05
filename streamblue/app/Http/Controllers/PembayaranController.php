@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pembayaran;
+use App\Models\Pemesanan;
 
 class PembayaranController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $pembayarans = Pembayaran::all();
-        return view('pembayaran', compact('pembayarans'));
+        $langgananharga = $request->input('langgananharga');
+        return view('pembayaran', [
+            'pembayarans' => $pembayarans,
+            'langgananharga' => $langgananharga
+        ]);
     }
     public function prosesPembayaran(Request $request)
     {
