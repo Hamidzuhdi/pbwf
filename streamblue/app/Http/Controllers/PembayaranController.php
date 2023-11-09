@@ -17,10 +17,11 @@ class PembayaranController extends Controller
             'langgananharga' => $langgananharga
         ]);
     }
+
     public function prosesPembayaran(Request $request)
     {
         // Di sini, Anda dapat mengakses total harga dari $request
-        $total = $request->input('total');
+        $total = $request->input('total_harga');
 
         // Lakukan pemrosesan pembayaran sesuai kebutuhan Anda
         // Misalnya, menyimpan data pembayaran ke database, mengirim email konfirmasi, dll.
@@ -29,5 +30,4 @@ class PembayaranController extends Controller
             'total' => $total,
         ]);
     }
-
 }

@@ -48,15 +48,16 @@
     <!-- Di halaman pemesanan -->
     <script>
         // Ambil nilai total_harga dari elemen di halaman ini
-        const langgananharga = document.querySelector("#total_harga").textContent;
+        const langgananharga = document.querySelector("#harga").value;
 
         // Ambil nilai dari elemen dengan class "rowa"
-        const rowaValue = document.querySelector(".rowa").textContent;
+        const rowaValue = document.querySelector(".rowa input").value;
 
         // Tambahkan nilai total_harga dan nilai "rowa" ke tautan pembayaran
         const tautanPembayaran = document.querySelector("#tautanPembayaran");
         tautanPembayaran.href = `/pembayaran?total_harga=${langgananharga}&rowa=${rowaValue}`;
     </script>
+
 
 
 <script src="{{ asset('js/custom.js') }}"></script>
