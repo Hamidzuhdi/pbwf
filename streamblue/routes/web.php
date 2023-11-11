@@ -39,7 +39,7 @@ Route::delete('/event/delete', [EventController::class, 'destroy']);
 Route::get('/tampildatapemesanan/{id}/edit', [PemesananController::class, 'edit']);
 Route::put('/tampildatapemesanan/{id}', [PemesananController::class, 'update']);
 Route::get('/pembayaran',[PembayaranController::class, 'index']);
-Route::get('/pembayaran',[PembayaranController::class, 'prosesPembayaran']);
+// Route::get('/pembayaran',[PembayaranController::class, 'prosesPembayaran']);
 Route::get('/live',[PembayaranController::class, 'cuy']);
 Route::get('/tambapembayaran', [PembayaranController::class, 'create']);
 Route::post('/tambapembayaran', [PembayaranController::class, 'store']);

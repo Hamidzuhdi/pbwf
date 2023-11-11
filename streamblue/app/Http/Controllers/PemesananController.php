@@ -15,11 +15,14 @@ class PemesananController extends Controller
         $langgananGambar = $request->input('langgananGambar');
         $langgananharga = $request->input('langgananharga');
 
+        $pemesanan = Pemesanan::where('langganan_id', $langgananId)->first();
+
         // Lakukan apa pun yang perlu Anda lakukan dengan parameter query, misalnya menampilkan gambar langganan
         return view('pemesanan', [
             'langgananId' => $langgananId,
             'langgananGambar' => $langgananGambar,
-            'langgananharga' => $langgananharga
+            'langgananharga' => $langgananharga,
+            'pemesanan' => $pemesanan
         ]);
     }
 

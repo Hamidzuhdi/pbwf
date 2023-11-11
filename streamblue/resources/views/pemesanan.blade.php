@@ -31,32 +31,43 @@
                         <button class="rounded-end bg-secondary p-2 border border-0 minus" id="minus"
                             disabled>-</button>
                     </div>
+                    <div class="milih" data-pemesanan-id="{{ $pemesanan->pemesanan_id }}">
+                        <!-- Konten milih lainnya -->
+                    </div>
                     <div class="rowa">
                         <label for="price" class="col-sm-2 col-form-label fs-5">Total Harga</label>
-                        <input type="text" class="col-sm-2 form-control w-25 border-0 fs-4 total" name="total_harga" readonly
+                        <input type="text" class="col-sm-2 form-control w-25 border-0 fs-4 total" name="total_harga" data-total-harga="{{ $pemesanan->total_harga }}" alt="{{ $pemesanan->total_harga }}" class="total_harga" readonly
                             id="total_harga">
                     </div>
                 <div class="btn btn-success">
                     <i class="fa fa-shopping-cart"></i>
-                    <a id="tautanPembayaran" href="/pembayaran?total_harga={{ $langgananharga }}"><button type="submit">Pay</button></a>
+                    <button type="submit">
+                    <a id="tautanPembayaran" href="/pembayaran?pemesananId={{ $pemesanan->id }}&totalharga={{ $pemesanan->total_harga }}">Pay</a>
+                </button>
                 </div>
             </div>
         </div>
     </form>
     </div>
 
-    <!-- Di halaman pemesanan -->
     <script>
-        // Ambil nilai total_harga dari elemen di halaman ini
-        const langgananharga = document.querySelector("#harga").value;
+        document.addEventListener("DOMContentLoaded", function() {
+            // Temukan semua elemen card
+            const milihs = document.querySelectorAll(".milih");
 
-        // Ambil nilai dari elemen dengan class "rowa"
-        const rowaValue = document.querySelector(".rowa input").value;
+            // Tambahkan event click ke setiap milih
+            milihs.forEach(milih => {
+                milih.addEventListener("click", function() {
+                    const pemesananId = milih.getAttribute("data-pemesanan-id");
+                    // Dapatkan data langganan dan gambar dari milih yang dimilih
+                    const totalharga = document.querySelector(".rowa input[name='total_harga']").value;
 
-        // Tambahkan nilai total_harga dan nilai "rowa" ke tautan pembayaran
-        const tautanPembayaran = document.querySelector("#tautanPembayaran");
-        tautanPembayaran.href = `/pembayaran?total_harga=${langgananharga}&rowa=${rowaValue}`;
-    </script>
+                    // Arahkan pengguna ke halaman pemesanan dengan data yang dimilih
+                    window.location.href = `/pembayaran?pemesananId=${pemesananId}&totalharga=${totalharga}`;
+                });
+            });
+        });
+        </script>
 
 
 

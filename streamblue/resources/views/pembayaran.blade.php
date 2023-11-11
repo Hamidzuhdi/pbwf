@@ -12,7 +12,9 @@
     <form action="/pembayaran" method="POST">
         @csrf
         <!-- Tambahkan input untuk total harga -->
-        <input type="hidden" name="total_harga" value="{{ $langgananharga }}">
+        {{-- <input type="text" name="total_harga" value="{{ $totalharga }}" readonly> --}}
+        <p>pemesanan id: {{ $pemesananId }}</p>
+        <p>Total Tagihan: {{ $totalharga }}</p>
 
         <!-- Input untuk menyimpan nilai rowa -->
         <input type="hidden" name="rowa" id="rowa" readonly>
