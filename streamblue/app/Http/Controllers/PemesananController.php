@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\Langganan;
 use App\Models\Pemesanan;
@@ -14,6 +15,7 @@ class PemesananController extends Controller
         $langgananId = $request->input('langgananId');
         $langgananGambar = $request->input('langgananGambar');
         $langgananharga = $request->input('langgananharga');
+
 
         $pemesanan = Pemesanan::where('langganan_id', $langgananId)->first();
 
@@ -45,8 +47,12 @@ class PemesananController extends Controller
 
         // Tambahkan atribut lain yang perlu disimpan
         $pemesanan->save();
+        // Dapatkan pemesananId yang baru saja dibuat
+        $pemesananId = $pemesanan->id;
+        $totalharga = $pemesanan->total_harga;
 
         // Redirect atau tampilkan pesan sukses, sesuaikan dengan kebutuhan Anda
-        return redirect('/pembayaran')->with('success', 'Transaksi berhasil disimpan.');
+        return redirect("/pembayaran?pemesananId=" . $pemesananId . "&totalharga=" . $totalharga)
+        ->with('success', 'Transaksi berhasil disimpan.');
     }
 }

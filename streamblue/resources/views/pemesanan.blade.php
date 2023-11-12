@@ -39,12 +39,11 @@
                         <input type="text" class="col-sm-2 form-control w-25 border-0 fs-4 total" name="total_harga" data-total-harga="{{ $pemesanan->total_harga }}" alt="{{ $pemesanan->total_harga }}" class="total_harga" readonly
                             id="total_harga">
                     </div>
-                <div class="btn btn-success">
+                    <button type="submit" id="btnPayy">Pay</button>
+                {{-- <div class="btn btn-success">
                     <i class="fa fa-shopping-cart"></i>
-                    <button type="submit">
                     <a id="tautanPembayaran" href="/pembayaran?pemesananId={{ $pemesanan->id }}&totalharga={{ $pemesanan->total_harga }}">Pay</a>
-                </button>
-                </div>
+                </div> --}}
             </div>
         </div>
     </form>
@@ -54,6 +53,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             // Temukan semua elemen card
             const milihs = document.querySelectorAll(".milih");
+            const btnPay = document.getElementById("btnPay");
 
             // Tambahkan event click ke setiap milih
             milihs.forEach(milih => {
@@ -61,11 +61,19 @@
                     const pemesananId = milih.getAttribute("data-pemesanan-id");
                     // Dapatkan data langganan dan gambar dari milih yang dimilih
                     const totalharga = document.querySelector(".rowa input[name='total_harga']").value;
-
                     // Arahkan pengguna ke halaman pemesanan dengan data yang dimilih
-                    window.location.href = `/pembayaran?pemesananId=${pemesananId}&totalharga=${totalharga}`;
+                    // window.location.href = `/pembayaran?pemesananId=${pemesananId}&totalharga=${totalharga}`;
                 });
             });
+            btnPay.addEventListener("click", function() {
+            // Dapatkan URL saat ini
+            const currentUrl = window.location.href;
+            // Bangun URL tujuan dengan menambahkan parameter pemesananId dan totalharga
+            const destinationUrl = `/pembayaran?pemesananId=${pemesananId}&totalharga=${totalharga}`;
+
+            // Arahkan pengguna ke halaman pembayaran
+            window.location.href = destinationUrl;
+        });
         });
         </script>
 

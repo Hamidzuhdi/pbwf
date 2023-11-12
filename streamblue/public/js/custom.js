@@ -43,18 +43,19 @@ $(document).ready(function () {
 });
 
 $(document).ready(function(){
-    $("#diterima").on('input', function(){
-        var total = $("#total").val();
-        var diterima =("#diterima").val();
-        var hasil = diterima - total;
+    $("#total_bayar").on('input', function(){
+        var total = $("#total_harga").val();
+        var total_bayar = $("#total_bayar").val();
+        var hasil = total_bayar - total;
 
-        if(diterima <= total){
+        if (total_bayar < total || isNaN(hasil)) {
             $("#dikembalikan").val(0);
-        } else{
+        } else {
             $("#dikembalikan").val(hasil);
         }
     });
 });
+
 
 // $(document).ready(function () {
 //     $(".eksp").change(function (e) {
