@@ -39,7 +39,6 @@ class PertandinganController extends Controller
             'tgl_pertandingan' => 'required|date',
             'nama_pertandingan' => 'required|string',
             'liga' => 'required|string',
-            'user_id' => 'required|integer',
             'langganan_id' => 'required|integer'
         ]);
 

@@ -30,10 +30,6 @@
     <input type="text" name="liga" id="liga" required>
     <br><br>
 
-    <label for="user_id">User Id:</label>
-    <input type="number" name="user_id" id="user_id" required>
-    <br><br>
-
     <label for="langganan_id">Langganan Id:</label>
     <input type="number" name="langganan_id" id="langganan_id" required>
     <br><br>

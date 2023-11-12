@@ -13,16 +13,10 @@ class Pertandingan extends Model
         'tgl_pertandingan',
         'nama_pertandingan',
         'liga',
-        'user_id',
         'langganan_id'
     ];
 
     protected $guarded = ['id'];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 
     public function langganan()
     {

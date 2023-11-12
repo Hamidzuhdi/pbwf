@@ -42,7 +42,7 @@ Route::get('/pembayaran',[PembayaranController::class, 'index']);
 // Route::get('/pembayaran',[PembayaranController::class, 'prosesPembayaran']);
 Route::get('/live',[PembayaranController::class, 'cuy']);
 Route::get('/tambapembayaran', [PembayaranController::class, 'create']);
-Route::post('/tambapembayaran', [PembayaranController::class, 'store']);
+Route::post('/pembayaran', [PembayaranController::class, 'store']);
 Route::delete('/event/delete', [EventController::class, 'destroy']);
 Route::get('/tampildatapembayaran/{id}/edit', [PembayaranController::class, 'edit']);
 Route::put('/tampildatapembayaran/{id}', [PembayaranController::class, 'update']);
