@@ -31,12 +31,12 @@
                         <button class="rounded-end bg-secondary p-2 border border-0 minus" id="minus"
                             disabled>-</button>
                     </div>
-                    <div class="milih" data-pemesanan-id="{{ $pemesanan->pemesanan_id }}">
+                    <div class="milih" data-pemesanan-id="{{ optional($pemesanan)->pemesanan_id }}">
                         <!-- Konten milih lainnya -->
                     </div>
                     <div class="rowa">
                         <label for="price" class="col-sm-2 col-form-label fs-5">Total Harga</label>
-                        <input type="text" class="col-sm-2 form-control w-25 border-0 fs-4 total" name="total_harga" data-total-harga="{{ $pemesanan->total_harga }}" alt="{{ $pemesanan->total_harga }}" class="total_harga" readonly
+                        <input type="text" class="col-sm-2 form-control w-25 border-0 fs-4 total" name="total_harga" data-total-harga="{{ optional($pemesanan)->total_harga }}" alt="{{ optional($pemesanan)->total_harga }}" class="total_harga" readonly
                             id="total_harga">
                     </div>
                     <button type="submit" id="btnPayy">Pay</button>
