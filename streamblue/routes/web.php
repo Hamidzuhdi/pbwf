@@ -30,6 +30,10 @@ Route::get('/live', function () {
     return view('live');
 });
 
+Route::get('/admin', function () {
+    return view('admin/layout/index');
+});
+
 // INI JADI 1 TRANSAKSI
 Route::get('/pemesanan',[PemesananController::class, 'index']);
 Route::get('/live',[PemesananController::class, 'cuy']);

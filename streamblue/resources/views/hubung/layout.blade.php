@@ -13,11 +13,12 @@
     @yield('css2')
     @yield('css3')
     @yield('css4')
+    @yield('css5')
 </head>
 <body>
     <header>
         <div class="logo">
-            <h1>My Website</h1>
+            <a href="/"><img src="{{ asset('gambar/logo.jpeg') }}" alt="Logo Goal.com"><h4>My Website</h4   ></a>
         </div>
         <nav>
             <ul>
