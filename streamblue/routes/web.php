@@ -33,6 +33,10 @@ Route::get('/live', function () {
 Route::get('/admin', function () {
     return view('admin/layout/index');
 });
+Route::get('/apertandingan', function () {
+    return view('admin/page/apertandingan');
+});
+Route::get('/apertandingan',[PertandinganController::class, 'aindex']);
 
 // INI JADI 1 TRANSAKSI
 Route::get('/pemesanan',[PemesananController::class, 'index']);
@@ -67,8 +71,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/jadwal',[PertandinganController::class, 'index']);
 Route::get('/live',[PertandinganController::class, 'cuy']);
-Route::get('/tambapertandingan', [PertandinganController::class, 'create']);
-Route::post('/tambapertandingan', [PertandinganController::class, 'store']);
+Route::get('/admin/modal/addpertandingan', [PertandinganController::class, 'create']);
+Route::post('/admin/modal/addpertandingan', [PertandinganController::class, 'store']);
 Route::delete('/event/delete', [EventController::class, 'destroy']);
-Route::get('/tampildatapertandingan/{id}/edit', [PertandinganController::class, 'edit']);
-Route::put('/tampildatapertandingan/{id}', [PertandinganController::class, 'update']);
+Route::get('/admin/modal/editpertandingan/{id}/edit', [PertandinganController::class, 'edit']);
+Route::put('/admin/modal/editpertandingan/{id}', [PertandinganController::class, 'update']);

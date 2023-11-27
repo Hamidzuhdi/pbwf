@@ -5,7 +5,7 @@
     <div class="collapse navbar-collapse flex-grow-0" id="navbarNavDropdown">
         <ul class="navbar-nav flex-column gap-3 px-2">
             <li class="navbar-item rounded {{Request::path() === 'admin/dashboard' ? "bg-info" : ""}} ">
-                <a href="dashboard" class="text-white">
+                <a href="/apertandingan" class="text-white">
                     <div class="d-flex gap-3">
                         <span class="material-icons">dashboard</span>
                         <p class="m-0 p-0">Pertandingan</p>

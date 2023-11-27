@@ -13,6 +13,11 @@ class PertandinganController extends Controller
         $pertandingans = Pertandingan::all();
         return view('jadwal', compact('pertandingans'));
     }
+    public function aindex()
+    {
+        $pertandingans = Pertandingan::all();
+        return view('/admin/page/apertandingan', compact('pertandingans'));
+    }
 
     public function cuy()
     {
@@ -23,7 +28,7 @@ class PertandinganController extends Controller
    public function create()
    {
        $pertandingans = Pertandingan::all();
-       return view('tambapertandingan', compact('pertandingans'));
+       return view('admin/modal/addpertandingan', compact('pertandingans'));
    }
 
 
@@ -44,7 +49,7 @@ class PertandinganController extends Controller
 
         Pertandingan::create($validatedData);
 
-        return redirect('/jadwal')->with('success', 'Pertandingan berhasil disimpan.');
+        return redirect('/apertandingan')->with('success', 'Pertandingan berhasil disimpan.');
     }
 
 
@@ -59,7 +64,7 @@ class PertandinganController extends Controller
    public function edit($id)
    {
        $pertandingan = DB::table('pertandingans')->where('id',$id)->first();
-       return view('tambadatapertandingan', ['pertandingan' => $pertandingan]);
+       return view('/admin/modal/editpertandingan', ['pertandingan' => $pertandingan]);
    }
 
        public function update(Request $request, $id)
@@ -72,7 +77,7 @@ class PertandinganController extends Controller
 
        DB::table('pertandingans')->where('id', $id)->update($validatedData);
 
-       return redirect('/jadwal');
+       return redirect('/apertandingan');
    }
 
 
