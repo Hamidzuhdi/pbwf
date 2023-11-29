@@ -5,12 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\User; // Pastikan Anda mengimpor namespace User dengan benar
 use Illuminate\Support\Facades\Hash; // ini juga jangan lupa
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class RegrisController extends Controller
 {
     public function create()
     {
         return view('regris');
+    }
+
+    public function index(){
+        $users = User::all();
+        return view('admin.page.auser', compact('users'));
     }
 
     public function store(Request $request)
@@ -43,5 +50,27 @@ class RegrisController extends Controller
         session()->flash('sukses', 'Terimakasih registrasi anda berhasil');
 
         return redirect('/langganan')->with('success', 'Account berhasil disimpan.');
+    }
+    public function edit($id)
+    {
+        $user = DB::table('users')->where('id',$id)->first();
+        return view('/admin/modal/edituser', ['user' => $user]);
+    }
+
+        public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+         'nama' => 'required|string',
+         'mail' => 'required|string',
+         'role' => [
+            'required',
+            Rule::in(['admin', 'customer']) // Sesuaikan dengan nilai ENUM yang valid
+        ],
+         'telp' => 'required|string'
+        ]);
+
+        DB::table('users')->where('id', $id)->update($validatedData);
+
+        return redirect('/auser');
     }
 }

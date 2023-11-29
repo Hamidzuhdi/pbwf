@@ -62,6 +62,9 @@ Route::get('/admin/modal/editlangganan/{id}/edit', [LanggananController::class, 
 Route::put('/admin/modal/editlangganan/{id}', [LanggananController::class, 'update']);
 
 Route::get('regris', [RegrisController::class, 'create'])->name('regris');
+Route::get('/auser', [RegrisController::class, 'index']);
+Route::get('/admin/modal/edituser/{id}/edit', [RegrisController::class, 'edit']);
+Route::put('/admin/modal/edituser/{id}', [RegrisController::class, 'update']);
 Route::post('regris', [RegrisController::class, 'store'])->name('regris');
 
 Route::get('/login', [LoginController::class, 'create'])->name('login');

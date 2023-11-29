@@ -1,162 +1,30 @@
 @extends('admin.layout.index')
-
 @section('content')
-    <div class="card mb-1">
-        <div class="card-body d-flex flex-row justify-content-between">
-            <div class="filter d-flex flex-lg-row gap-3">
-                <input type="date" class="form-control" name="tgl_awal">
-                <input type="date" class="form-control" name="tgl_akhir">
-                <button class="btn btn-primary">Filter</button>
-            </div>
+<h2>Data User</h2>
+<table border="1" style="border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th style="padding-right: 80px;">ID</th>
+            <th style="padding-right: 80px;">nama</th>
+            <th style="padding-right: 80px;">email</th>
+            <th style="padding-right: 80px;">role</th>
+            <th style="padding-right: 80px;">telepon</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($users as $user)
+            <tr>
+                <td style="padding-right: 80px;">{{ $user->id }}</td>
+                <td style="padding-right: 80px;">{{ $user->nama }}</td>
+                <td style="padding-right: 80px;">{{ $user->mail }}</td>
+                <td style="padding-right: 80px;">{{ $user->role }}</td>
+                <td style="padding-right: 80px;">{{ $user->telp }}</td>
+                <td>
+                    <a href="/admin/modal/edituser/{{ $user->id }}/edit">edit</a>
+                </td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
 
-        </div>
-    </div>
-    <div class="card rounded-full">
-        <div class="card-header bg-transparent d-flex justify-content-between">
-            <button class="btn btn-info" id="addData">
-                <i class="fa fa-plus">
-                    <span>Tambah User</span>
-                </i>
-            </button>
-            <input type="text" wire:model="search" class="form-control w-25" placeholder="Search....">
-        </div>
-        <div class="card-body">
-            <table class="table table-responsive table-striped">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Foto</th>
-                        <th>NIK</th>
-                        <th>Join Date</th>
-                        <th>Nama Karyawan</th>
-                        <th>Role</th>
-                        <th>Status</th>
-                        <th>#</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($data as $y => $x)
-                        <tr class="align-middle">
-                            <td>{{ ++$y }}</td>
-                            <td>
-                                <img src="{{ asset('storage/user/' . $x->foto) }}" style="width:100px;">
-                            </td>
-                            <td>{{ $x->nik }}</td>
-                            <td>{{ $x->created_at }}</td>
-                            <td>{{ $x->name }}</td>
-                            <td>
-                                <span class='badge text-bg-{{ $x->role === 1 ? 'info' : 'success' }}'>{{ $x->role === 1 ? 'Admin' : 'Manager' }}</span>
-                            </td>
-                            <td>
-                                <span class="badge text-bg-{{ $x->is_active === 1 ? 'success' : 'danger'}}">{{ $x->is_active === 1 ? 'Active' : 'No Active'}}</span>
-                            </td>
-                            <td>
-                                <button class="btn btn-info editModal" data-id="{{ $x->id }}">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="btn btn-danger deleteData" data-id="{{ $x->id }}">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            <div class="pagination d-flex flex-row justify-content-between">
-                <div class="showData">
-                    Data ditampilkan {{$data->count()}} dari {{$data->total()}}
-                </div>
-                <div>
-                    {{ $data->links() }}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="tampilData" style="display: none;"></div>
-    <div class="tampilEditData" style="display: none;"></div>
-
-    <script>
-        $('#addData').click(function() {
-            $.ajax({
-                url: '{{ route('addModalUser') }}',
-                success: function(response) {
-                    $('.tampilData').html(response).show();
-                    $('#userTambah').modal("show");
-                }
-            });
-        });
-        $('.editModal').click(function(e) {
-            e.preventDefault();
-            var id = $(this).data('id');
-
-            $.ajax({
-                type: "GET",
-                url: "{{ route('showDataUser', ['id' => ':id']) }}".replace(':id', id),
-                success: function(response) {
-                    $('.tampilEditData').html(response).show();
-                    $('#editModal').modal("show");
-                }
-            });
-        });
-
-        $.ajaxSetup({
-            headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-            },
-        });
-
-        $('.deleteData').click(function(e) {
-            e.preventDefault();
-            var id = $(this).data('id');
-            var nik = $('#nik').val();
-            const Toast = Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener("mouseenter", Swal.stopTimer);
-                    toast.addEventListener("mouseleave", Swal.resumeTimer);
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 1000);
-                },
-            });
-
-            Swal.fire({
-                title: 'Hapus data ?',
-                text: "Kamu yakin untuk menghapus karyawan ini ?",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $.ajax({
-                        type: "DELETE",
-                        url: "{{ route('destroyDataUser', ['id' => ':id']) }}".replace(':id', id),
-                        dataType: "json",
-                        success: function(response) {
-                            if (response.success) {
-                                Toast.fire({
-                                    icon: "success",
-                                    title: response.success,
-                                });
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            // Tampilkan notifikasi error jika terjadi kesalahan
-                            Swal.fire({
-                                title: 'Error',
-                                text: 'Terjadi kesalahan saat menghapus data',
-                                icon: 'error'
-                            });
-                        }
-                    });
-                }
-            })
-        });
-    </script>
 @endsection

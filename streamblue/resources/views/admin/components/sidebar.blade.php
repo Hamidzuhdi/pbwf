@@ -20,8 +20,8 @@
                     </div>
                 </a>
             </li>
-            <li class="navbar-item rounded {{Request::path() === 'admin/user_management' ? "bg-info" : ""}} ">
-                <a href="user_management" class="">
+            <li class="navbar-item rounded {{Request::path() === 'admin/page/auser' ? "bg-info" : ""}} ">
+                <a href="/auser" class="">
                     <div class="d-flex gap-3">
                         <span class="material-icons">people_alt</span>
                         <p class="m-0 p-0">User Management</p>

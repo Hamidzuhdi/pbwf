@@ -1,6 +1,7 @@
 @extends('admin.layout.index')
 
 @section('content')
+<h2>Data Pertandingan</h2>
 <table border="1" style="border-collapse: collapse;">
     <thead>
         <tr>
