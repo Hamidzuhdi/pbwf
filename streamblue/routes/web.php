@@ -33,9 +33,8 @@ Route::get('/live', function () {
 Route::get('/admin', function () {
     return view('admin/layout/index');
 });
-Route::get('/apertandingan', function () {
-    return view('admin/page/apertandingan');
-});
+
+Route::get('/alangganan',[LanggananController::class, 'aindex']);
 Route::get('/apertandingan',[PertandinganController::class, 'aindex']);
 
 // INI JADI 1 TRANSAKSI
@@ -56,11 +55,11 @@ Route::get('/tampildatapembayaran/{id}/edit', [PembayaranController::class, 'edi
 Route::put('/tampildatapembayaran/{id}', [PembayaranController::class, 'update']);
 
 Route::get('/langganan',[LanggananController::class, 'index']);
-Route::get('/tambalangganan', [LanggananController::class, 'create']);
-Route::post('/tambalangganan', [LanggananController::class, 'store']);
+Route::get('/admin/modal/addlangganan', [LanggananController::class, 'create']);
+Route::post('/admin/modal/addlangganan', [LanggananController::class, 'store']);
 Route::delete('/event/delete', [EventController::class, 'destroy']);
-Route::get('/tampildatalangganan/{id}/edit', [LanggananController::class, 'edit']);
-Route::put('/tampildatalangganan/{id}', [LanggananController::class, 'update']);
+Route::get('/admin/modal/editlangganan/{id}/edit', [LanggananController::class, 'edit']);
+Route::put('/admin/modal/editlangganan/{id}', [LanggananController::class, 'update']);
 
 Route::get('regris', [RegrisController::class, 'create'])->name('regris');
 Route::post('regris', [RegrisController::class, 'store'])->name('regris');

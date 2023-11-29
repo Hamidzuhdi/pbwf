@@ -14,6 +14,12 @@ class LanggananController extends Controller
         return view('langganan', compact('langganans'));
     }
 
+    public function aindex()
+    {
+        $langganans = Langganan::all();
+        return view('/admin/page/alangganan', compact('langganans'));
+    }
+
    public function create()
    {
        $langganans = Langganan::all();
@@ -53,7 +59,7 @@ class LanggananController extends Controller
    public function edit($id)
    {
        $langganan = DB::table('langganans')->where('id',$id)->first();
-       return view('tambadatalangganan', ['langganan' => $langganan]);
+       return view('/admin/modal/editlangganan', ['langganan' => $langganan]);
    }
 
        public function update(Request $request, $id)
@@ -66,7 +72,7 @@ class LanggananController extends Controller
 
        DB::table('langganans')->where('id', $id)->update($validatedData);
 
-       return redirect('/langganan');
+       return redirect('/alangganan');
    }
 
 

@@ -26,5 +26,5 @@
         @endforeach
     </tbody>
 </table>
-<a href="/admin/modal/addpertandingan" class="btn btn-sm btn-success" style="margin-top: 20px">Tambah Satuan Baru</a>
+<a href="/admin/modal/addpertandingan" class="btn btn-sm btn-success" style="margin-top: 20px">Tambah Pertandingan Baru</a>
 @endsection
