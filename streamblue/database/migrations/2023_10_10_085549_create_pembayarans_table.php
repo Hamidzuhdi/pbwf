@@ -17,6 +17,8 @@ return new class extends Migration
             $table->integer('total_bayar');
             $table->unsignedBigInteger('pemesanan_id');
             $table->foreign('pemesanan_id')->references('id')->on('pemesanans');
+            $table->string('gambar',100);
+            $table->enum('status', ['menunggu', 'berhasil', 'gagal'])->default('menunggu');
         });
     }
 

@@ -23,12 +23,10 @@
             <div class="card-footer" data-langganan-harga="{{ $langganan->harga }}">
                 <p class="m-0">{{ $langganan->harga }} / bulan</p>
             </div>
-            <a href="/tampildatalangganan/{{ $langganan->id }}/edit" class="btn btn-sm btn-primary">Edit</a>
         </div>
     @endforeach
 
     </div>
-    <a href="/tambalangganan" class="btn btn-sm btn-success" style="margin-left: 200px">Tambah Langganan Baru</a>
 </body>
 
 <script>

@@ -31,6 +31,7 @@
     <select name="role" id="role" required>
         <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>Admin</option>
         <option value="customer" {{ $user->role === 'customer' ? 'selected' : '' }}>Customer</option>
+        <option value="superadmin" {{ $user->role === 'superadmin' ? 'selected' : '' }}>superadmin</option>
     </select>
     <br><br>
 

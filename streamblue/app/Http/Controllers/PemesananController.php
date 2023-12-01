@@ -27,6 +27,11 @@ class PemesananController extends Controller
             'pemesanan' => $pemesanan
         ]);
     }
+    public function aindex()
+    {
+        $pemesanan = Pemesanan::all();
+        return view('/admin/page/apemesanan', compact('pemesanan'));
+    }
 
     public function store(Request $request)
     {

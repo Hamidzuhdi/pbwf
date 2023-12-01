@@ -29,7 +29,7 @@
                 </a>
             </li>
             <li class="navbar-item rounded {{Request::path() === 'admin/report' ? "bg-info" : ""}} ">
-                <a href="report" class="">
+                <a href="/apemesanan" class="">
                     <div class="d-flex gap-3">
                         <span class="material-icons">analytics</span>
                         <p class="m-0 p-0">Pemesanan</p>

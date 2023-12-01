@@ -67,5 +67,5 @@
 @endforeach
 
 
-<a href="/tambapertandingan" class="btn btn-sm btn-success" style="margin-left: 200px">Tambah Pertandingan Baru</a>
+<a href="/admin/modal/addpertandingan" class="btn btn-sm btn-success" style="margin-left: 200px">Tambah Pertandingan Baru</a>
 @endsection

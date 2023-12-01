@@ -28,6 +28,10 @@
         <label for="dikembalikan">Uang Kembali:</label>
         <input type="text" name="dikembalikan" id="dikembalikan" readonly>
 
+        <label for="gambar">Gambar:</label>
+        <input type="file" name="gambar" id="gambar">
+        <br><br>
+
         <button type="submit">Bayar</button>
     </form>
 

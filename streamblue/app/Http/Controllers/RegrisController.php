@@ -25,13 +25,12 @@ class RegrisController extends Controller
         $request->validate([
             'nama' => ['required', 'alpha_num', 'string', 'min:3', 'max:20'],
             'mail' => ['required', 'email'],
-            'role' => ['required', 'in:admin,customer'],
             'telp' => ['required', 'string', 'min:11', 'max:13'],
             'password' => ['required', 'min:3', 'max:255']
         ]);
 
-        $user = User::where('mail', $request->mail_mhs)
-            ->orWhere('telp', $request->telp_mhs)
+        $user = User::where('mail', $request->mail)
+            ->orWhere('telp', $request->telp)
             ->orWhere('password', $request->password)
             ->first();
 
@@ -39,10 +38,12 @@ class RegrisController extends Controller
             return dd('user sudah ada tolong cari yang lain');
         }
 
-        User::create([
+        $role = ($request->id == 1) ? 'superadmin' : 'customer';
+
+        $user = User::create([
             'nama' => $request->nama,
             'mail' => $request->mail,
-            'role' => $request->role,
+            'role' => $role,
             'telp' => $request->telp,
             'password' => Hash::make($request->password)
         ]);
@@ -51,11 +52,14 @@ class RegrisController extends Controller
 
         return redirect('/langganan')->with('success', 'Account berhasil disimpan.');
     }
-    public function edit($id)
-    {
-        $user = DB::table('users')->where('id',$id)->first();
-        return view('/admin/modal/edituser', ['user' => $user]);
-    }
+
+
+public function edit($id)
+{
+    $user = DB::table('users')->where('id', $id)->first();
+    return view('/admin/modal/edituser', ['user' => $user]);
+}
+
 
         public function update(Request $request, $id)
     {
@@ -64,7 +68,7 @@ class RegrisController extends Controller
          'mail' => 'required|string',
          'role' => [
             'required',
-            Rule::in(['admin', 'customer']) // Sesuaikan dengan nilai ENUM yang valid
+            Rule::in(['admin', 'customer','superadmin']) // Sesuaikan dengan nilai ENUM yang valid
         ],
          'telp' => 'required|string'
         ]);

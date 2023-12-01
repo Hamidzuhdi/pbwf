@@ -16,8 +16,11 @@
 <body>
     <div class="container">
         <h1>Registrasi Pemain Sepak Bola</h1>
-         <form action="{{ route('regris') }}" method="post">
+         <form action="/regris" method="post">
              @csrf
+              <!-- Input tersembunyi untuk menyertakan ID -->
+<!-- Input tersembunyi untuk menyertakan ID -->
+<input type="hidden" name="id" value="{{ isset($user) ? ($user->id == 1 ? 'superadmin' : 'customer') : 'customer' }}">
             <div class="mb-4">
                 <label for="nama" class="form-label" style="background-color: whitesmoke">Username</label>
                 <input type="text" name="nama" id="nama" class="form-control">
@@ -35,19 +38,18 @@
                         {{ $message }}
                     </div>
                 @enderror
-            </div>
-            <div class="mb-4">
-                <label for="role" class="form-label" style="background-color: whitesmoke">Role</label>
-                <select name="role" id="role" class="form-select">
-                    <option value="customer">Customer</option>
-                    <option value="admin">Admin</option>
-                </select>
-                @error("role")
-                    <div class="text-danger mt-2">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
+                <div class="mb-4" style="display: none;">
+                    <label for="role" class="form-label" style="background-color: whitesmoke">Role</label>
+                    <select name="role" id="role" class="form-select">
+                        <option value="customer">Customer</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    @error("role")
+                        <div class="text-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
             <div class="mb-4">
                 <label for="telp" class="form-label" style="background-color: whitesmoke">Telp</label>
                 <input type="text" name="telp" id="telp" class="form-control">

@@ -26,6 +26,8 @@ class PembayaranController extends Controller
         $request->validate([
             'total_bayar' => 'required|integer',
             'pemesanan_id' => 'required|integer',
+            'gambar' => 'required|string',
+            'status' => ['required', 'in:menunggu,berhasil,gagal'],
         ]);
 
         // Simpan data transaksi ke database

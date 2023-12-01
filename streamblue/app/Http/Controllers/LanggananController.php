@@ -23,7 +23,7 @@ class LanggananController extends Controller
    public function create()
    {
        $langganans = Langganan::all();
-       return view('tambalangganan', compact('langganans'));
+       return view('admin/modal/addlangganan', compact('langganans'));
    }
 
 
@@ -44,7 +44,7 @@ class LanggananController extends Controller
 
         Langganan::create($validatedData);
 
-        return redirect('/langganan')->with('success', 'Langganan berhasil disimpan.');
+        return redirect('/alangganan')->with('success', 'Langganan berhasil disimpan.');
     }
 
 

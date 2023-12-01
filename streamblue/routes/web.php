@@ -36,6 +36,7 @@ Route::get('/admin', function () {
 
 Route::get('/alangganan',[LanggananController::class, 'aindex']);
 Route::get('/apertandingan',[PertandinganController::class, 'aindex']);
+Route::get('/apemesanan',[PemesananController::class, 'aindex']);
 
 // INI JADI 1 TRANSAKSI
 Route::get('/pemesanan',[PemesananController::class, 'index']);
@@ -61,11 +62,11 @@ Route::delete('/event/delete', [EventController::class, 'destroy']);
 Route::get('/admin/modal/editlangganan/{id}/edit', [LanggananController::class, 'edit']);
 Route::put('/admin/modal/editlangganan/{id}', [LanggananController::class, 'update']);
 
-Route::get('regris', [RegrisController::class, 'create'])->name('regris');
+Route::get('/regris', [RegrisController::class, 'create']);
 Route::get('/auser', [RegrisController::class, 'index']);
 Route::get('/admin/modal/edituser/{id}/edit', [RegrisController::class, 'edit']);
 Route::put('/admin/modal/edituser/{id}', [RegrisController::class, 'update']);
-Route::post('regris', [RegrisController::class, 'store'])->name('regris');
+Route::post('/regris', [RegrisController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'create'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
