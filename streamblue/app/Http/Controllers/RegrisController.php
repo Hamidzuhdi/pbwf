@@ -38,12 +38,10 @@ class RegrisController extends Controller
             return dd('user sudah ada tolong cari yang lain');
         }
 
-        $role = ($request->id == 1) ? 'superadmin' : 'customer';
-
         $user = User::create([
             'nama' => $request->nama,
             'mail' => $request->mail,
-            'role' => $role,
+            'role' => $request->role,
             'telp' => $request->telp,
             'password' => Hash::make($request->password)
         ]);

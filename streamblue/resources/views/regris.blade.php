@@ -18,9 +18,6 @@
         <h1>Registrasi Pemain Sepak Bola</h1>
          <form action="/regris" method="post">
              @csrf
-              <!-- Input tersembunyi untuk menyertakan ID -->
-<!-- Input tersembunyi untuk menyertakan ID -->
-<input type="hidden" name="id" value="{{ isset($user) ? ($user->id == 1 ? 'superadmin' : 'customer') : 'customer' }}">
             <div class="mb-4">
                 <label for="nama" class="form-label" style="background-color: whitesmoke">Username</label>
                 <input type="text" name="nama" id="nama" class="form-control">

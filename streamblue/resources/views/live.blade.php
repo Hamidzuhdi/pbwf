@@ -35,7 +35,7 @@
                     </a>
                 </div>
             </div>
-        @elseif ($pertandingan->liga == 'CONCERT')
+        @elseif ($pertandingan->liga == 'ucl')
         <div>
             <h6 class="liga">{{ $pertandingan->liga }}</h6>
         </div>

@@ -46,14 +46,16 @@ Route::post('/pemesanan', [PemesananController::class, 'store']);
 Route::delete('/event/delete', [EventController::class, 'destroy']);
 Route::get('/tampildatapemesanan/{id}/edit', [PemesananController::class, 'edit']);
 Route::put('/tampildatapemesanan/{id}', [PemesananController::class, 'update']);
+
 Route::get('/pembayaran',[PembayaranController::class, 'index']);
+Route::get('/apembayaran',[PembayaranController::class, 'aindex']);
 // Route::get('/pembayaran',[PembayaranController::class, 'prosesPembayaran']);
 Route::get('/live',[PembayaranController::class, 'cuy']);
 Route::get('/tambapembayaran', [PembayaranController::class, 'create']);
 Route::post('/pembayaran', [PembayaranController::class, 'store']);
 Route::delete('/event/delete', [EventController::class, 'destroy']);
-Route::get('/tampildatapembayaran/{id}/edit', [PembayaranController::class, 'edit']);
-Route::put('/tampildatapembayaran/{id}', [PembayaranController::class, 'update']);
+// Route::get('/admin/modal/editlangganan/{id}/edit', [PembayaranController::class, 'edit']);
+// Route::put('/admin/modal/editlangganan/{id}', [PembayaranController::class, 'update']);
 
 Route::get('/langganan',[LanggananController::class, 'index']);
 Route::get('/admin/modal/addlangganan', [LanggananController::class, 'create']);

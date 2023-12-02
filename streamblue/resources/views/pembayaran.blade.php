@@ -10,7 +10,7 @@
 <body>
     <h3>Nanti harus ada tagihan dan juga uang bayar dan otomatis menghasilkan kembalian</h3>
 
-    <form action="/pembayaran" method="POST">
+    <form action="/pembayaran" method="POST" enctype="multipart/form-data">
         @csrf
         <!-- Tambahkan input untuk total harga -->
         <input type="number" name="total_harga" id="total_harga" value="{{ $totalharga }}" readonly>
