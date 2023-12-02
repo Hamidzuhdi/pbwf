@@ -54,8 +54,8 @@ Route::get('/live',[PembayaranController::class, 'cuy']);
 Route::get('/tambapembayaran', [PembayaranController::class, 'create']);
 Route::post('/pembayaran', [PembayaranController::class, 'store']);
 Route::delete('/event/delete', [EventController::class, 'destroy']);
-// Route::get('/admin/modal/editlangganan/{id}/edit', [PembayaranController::class, 'edit']);
-// Route::put('/admin/modal/editlangganan/{id}', [PembayaranController::class, 'update']);
+Route::get('/pembayaran/resetspb/{id}',[PembayaranController::class, 'resetspb']);
+Route::get('/pembayaran/resetspg/{id}',[PembayaranController::class, 'resetspg']);
 
 Route::get('/langganan',[LanggananController::class, 'index']);
 Route::get('/admin/modal/addlangganan', [LanggananController::class, 'create']);

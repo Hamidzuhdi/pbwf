@@ -23,11 +23,17 @@
                 </td>
                 <td style="padding-right: 30px;">{{ $pembayaran->status }}</td>
                 <td>
-                    <a href="/admin/modal/editpembayaran/{{ $pembayaran->id }}/edit">edit</a>
+                    <a href="/pembayaran/resetspb/{{ $pembayaran->id }}" class="btn btn-danger btn-sm">
+                        <i class="bi bi-cart-check-fill"></i>
+                    </a>
+                </td>
+                <td>
+                    <a href="/pembayaran/resetspg/{{ $pembayaran->id }}" class="btn btn-danger btn-sm">
+                        <i class="bi bi-bag-x"></i>
+                    </a>
                 </td>
             </tr>
         @endforeach
     </tbody>
 </table>
-<a href="/admin/modal/addpembayaran" class="btn btn-sm btn-success" style="margin-top: 20px">Tambah pembayaran Baru</a>
 @endsection

@@ -18,7 +18,7 @@
             <p>Langganan ID: {{ $langgananId }}</p>
             <input type="hidden" name="langganan_id" id="langganan_id" value="{{ $langgananId }}">
             <label for="user_id">User Id</label>
-            <input type="text" name="user_id" id="user_id" required>
+            <input type="text" name="user_id" id="user_id" value="{{ request('user_id') }}" required readonly>
             <img src="{{ asset('gambar/' . $langgananGambar) }}" alt="{{ $langgananGambar }}" class="gambar-langganan">
             <div class="desc w-100">
                 <p style="margin-right: 20px"> Price / Duration :     </p>
