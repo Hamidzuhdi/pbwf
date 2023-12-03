@@ -10,6 +10,7 @@ use App\Models\Pemesanan;
 use App\Http\Controllers\PembayaranController;
 use App\Models\Pembayaran;
 use App\Models\Pertandingan;
+use Illuminate\Routing\RouteGroup;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,59 +26,72 @@ use App\Models\Pertandingan;
 Route::get('/', function () {
     return view('rumah');
 });
-
-Route::get('/live', function () {
-    return view('live');
-});
-
-Route::get('/admin', function () {
-    return view('admin/layout/index');
-});
-
-Route::get('/alangganan',[LanggananController::class, 'aindex']);
-Route::get('/apertandingan',[PertandinganController::class, 'aindex']);
-Route::get('/apemesanan',[PemesananController::class, 'aindex']);
-
-// INI JADI 1 TRANSAKSI
-Route::get('/pemesanan',[PemesananController::class, 'index']);
-Route::get('/live',[PemesananController::class, 'cuy']);
-Route::get('/tambapemesanan', [PemesananController::class, 'create']);
-Route::post('/pemesanan', [PemesananController::class, 'store']);
-Route::delete('/event/delete', [EventController::class, 'destroy']);
-Route::get('/tampildatapemesanan/{id}/edit', [PemesananController::class, 'edit']);
-Route::put('/tampildatapemesanan/{id}', [PemesananController::class, 'update']);
-
-Route::get('/pembayaran',[PembayaranController::class, 'index']);
-Route::get('/apembayaran',[PembayaranController::class, 'aindex']);
-// Route::get('/pembayaran',[PembayaranController::class, 'prosesPembayaran']);
-Route::get('/live',[PembayaranController::class, 'cuy']);
-Route::get('/tambapembayaran', [PembayaranController::class, 'create']);
-Route::post('/pembayaran', [PembayaranController::class, 'store']);
-Route::delete('/event/delete', [EventController::class, 'destroy']);
-Route::get('/pembayaran/resetspb/{id}',[PembayaranController::class, 'resetspb']);
-Route::get('/pembayaran/resetspg/{id}',[PembayaranController::class, 'resetspg']);
-
-Route::get('/langganan',[LanggananController::class, 'index']);
-Route::get('/admin/modal/addlangganan', [LanggananController::class, 'create']);
-Route::post('/admin/modal/addlangganan', [LanggananController::class, 'store']);
-Route::delete('/event/delete', [EventController::class, 'destroy']);
-Route::get('/admin/modal/editlangganan/{id}/edit', [LanggananController::class, 'edit']);
-Route::put('/admin/modal/editlangganan/{id}', [LanggananController::class, 'update']);
+Route::get('/jadwal',[PertandinganController::class, 'index']);
 
 Route::get('/regris', [RegrisController::class, 'create']);
-Route::get('/auser', [RegrisController::class, 'index']);
-Route::get('/admin/modal/edituser/{id}/edit', [RegrisController::class, 'edit']);
-Route::put('/admin/modal/edituser/{id}', [RegrisController::class, 'update']);
+
 Route::post('/regris', [RegrisController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'create'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/jadwal',[PertandinganController::class, 'index']);
-Route::get('/live',[PertandinganController::class, 'cuy']);
-Route::get('/admin/modal/addpertandingan', [PertandinganController::class, 'create']);
-Route::post('/admin/modal/addpertandingan', [PertandinganController::class, 'store']);
-Route::delete('/event/delete', [EventController::class, 'destroy']);
-Route::get('/admin/modal/editpertandingan/{id}/edit', [PertandinganController::class, 'edit']);
-Route::put('/admin/modal/editpertandingan/{id}', [PertandinganController::class, 'update']);
+// Route::get('/live', function () {
+//     return view('live');
+// });
+
+Route::group(['middleware' => ['auth','CekRolee:customer']], function(){
+        // INI JADI 1 TRANSAKSI
+    Route::get('/pemesanan',[PemesananController::class, 'index']);
+    Route::get('/live',[PemesananController::class, 'cuy']);
+    Route::get('/tambapemesanan', [PemesananController::class, 'create']);
+    Route::post('/pemesanan', [PemesananController::class, 'store']);
+    Route::delete('/event/delete', [EventController::class, 'destroy']);
+    Route::get('/tampildatapemesanan/{id}/edit', [PemesananController::class, 'edit']);
+    Route::put('/tampildatapemesanan/{id}', [PemesananController::class, 'update']);
+
+    Route::get('/langganan',[LanggananController::class, 'index']);
+
+    Route::get('/live',[PertandinganController::class, 'cuy']);
+
+    Route::get('/pembayaran',[PembayaranController::class, 'index']);
+
+    // Route::get('/live',[PembayaranController::class, 'cuy']);
+    Route::get('/tambapembayaran', [PembayaranController::class, 'create']);
+    Route::post('/pembayaran', [PembayaranController::class, 'store']);
+    Route::delete('/event/delete', [EventController::class, 'destroy']);
+    // sampai sini
+});
+
+Route::group(['middleware' => ['auth','CekRolee:superadmin,admin']], function(){
+    Route::get('/admin', function () {
+        return view('admin/layout/index');
+    });
+
+    Route::get('/alangganan',[LanggananController::class, 'aindex']);
+    Route::get('/apertandingan',[PertandinganController::class, 'aindex']);
+    Route::get('/apemesanan',[PemesananController::class, 'aindex']);
+
+
+    Route::get('/pembayaran/resetspb/{id}',[PembayaranController::class, 'resetspb']);
+    Route::get('/pembayaran/resetspg/{id}',[PembayaranController::class, 'resetspg']);
+
+    Route::get('/apembayaran',[PembayaranController::class, 'aindex']);
+
+    Route::get('/auser', [RegrisController::class, 'index']);
+    Route::get('/admin/modal/edituser/{id}/edit', [RegrisController::class, 'edit']);
+    Route::put('/admin/modal/edituser/{id}', [RegrisController::class, 'update']);
+
+    Route::get('/admin/modal/addlangganan', [LanggananController::class, 'create']);
+    Route::post('/admin/modal/addlangganan', [LanggananController::class, 'store']);
+    Route::delete('/event/delete', [EventController::class, 'destroy']);
+    Route::get('/admin/modal/editlangganan/{id}/edit', [LanggananController::class, 'edit']);
+    Route::put('/admin/modal/editlangganan/{id}', [LanggananController::class, 'update']);
+
+    Route::get('/admin/modal/addpertandingan', [PertandinganController::class, 'create']);
+    Route::post('/admin/modal/addpertandingan', [PertandinganController::class, 'store']);
+    Route::delete('/event/delete', [EventController::class, 'destroy']);
+    Route::get('/admin/modal/editpertandingan/{id}/edit', [PertandinganController::class, 'edit']);
+    Route::put('/admin/modal/editpertandingan/{id}', [PertandinganController::class, 'update']);
+});
+

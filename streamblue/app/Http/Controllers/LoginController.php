@@ -11,6 +11,7 @@ class LoginController extends Controller
 {
     public function create()
     {
+        $user = User::all();
         return view('login');
     }
 
@@ -25,7 +26,8 @@ class LoginController extends Controller
 
         if (Auth::guard('user')->attempt($credentials)) {
             // Jika autentikasi berhasil, alihkan ke halaman yang sesuai
-            return redirect('/')->with('success', 'Anda berhasil login.');
+            $userId = Auth::user()->id;  // Menggunakan Auth::user() untuk mendapatkan user yang sedang login
+            return redirect('/langganan?userId=' . $userId)->with('success', 'Anda berhasil login.');
         } else {
             // Jika autentikasi gagal, alihkan kembali ke halaman login
             throw ValidationException::withMessages([

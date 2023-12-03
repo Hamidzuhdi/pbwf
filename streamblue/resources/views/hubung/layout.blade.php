@@ -25,7 +25,21 @@
                 <li><a href="/live">watch live</a></li>
                 <li><a href="/">home</a></li>
                 <li><a href="/jadwal">Schedule</a></li>
-                <li><a href="/regris">regris</a></li>
+                @guest
+                    <li><a href="/regris">regris</a></li>
+                @else
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-target="#navbarDropdown" aria-expanded="false">
+                            {{ Auth::user()->nama }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button type="submit" class="dropdown-item"><i class="bibi-box-arrow-right"></i>Log out</button>
+                            </form>
+                        </ul>
+                    </li>
+                @endguest
             </ul>
         </nav>
     </header>
@@ -68,6 +82,8 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>

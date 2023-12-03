@@ -21,6 +21,17 @@ class PembayaranController extends Controller
             'totalharga' => $totalharga
         ]);
     }
+    public function cuy(Request $request)
+    {
+        $pembayarans = Pembayaran::all();
+        $pemesananId = $request->input('pemesananId');
+        $totalharga = $request->input('totalharga');
+        return view('pembayaran', [
+            'pembayarans' => $pembayarans,
+            'pemesananId' =>$pemesananId,
+            'totalharga' => $totalharga
+        ]);
+    }
     public function aindex()
     {
         $pembayarans = Pembayaran::all();

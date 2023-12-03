@@ -70,6 +70,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Sign in</button>
         </form>
+        <p style="margin-top: 20px;">Already have an account? <a href="{{ route('login') }}">Login here</a></p>
     </div>
 </body>
 <script>
