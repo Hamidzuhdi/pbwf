@@ -8,10 +8,14 @@ use Illuminate\Support\Facades\DB;
 
 class LanggananController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $userId = $request->input('userId');
         $langganans = Langganan::all();
-        return view('langganan', compact('langganans'));
+        return view('langganan', [
+            'userId' => $userId,
+            'langganans' => $langganans
+        ]);
     }
 
     public function aindex()

@@ -15,6 +15,7 @@ class PemesananController extends Controller
         $langgananId = $request->input('langgananId');
         $langgananGambar = $request->input('langgananGambar');
         $langgananharga = $request->input('langgananharga');
+        $userId = $request->input('userId');
 
 
          $pemesanan = Pemesanan::where('langganan_id', $langgananId)->first();
@@ -24,7 +25,8 @@ class PemesananController extends Controller
             'langgananId' => $langgananId,
             'langgananGambar' => $langgananGambar,
             'langgananharga' => $langgananharga,
-            'pemesanan' => $pemesanan
+            'pemesanan' => $pemesanan,
+            'userId' => $userId
         ]);
     }
     public function aindex()

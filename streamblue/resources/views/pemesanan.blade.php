@@ -16,9 +16,9 @@
             @csrf
         <div class="card-body d-flex">
             <p>Langganan ID: {{ $langgananId }}</p>
+            <p>user ID: {{ $userId }}</p>
             <input type="hidden" name="langganan_id" id="langganan_id" value="{{ $langgananId }}">
-            <label for="user_id">User Id</label>
-            <input type="text" name="user_id" id="user_id" value="{{ request('user_id') }}" required readonly>
+            <input type="hidden" name="user_id" id="user_id" value="{{ $userId }}">
             <img src="{{ asset('gambar/' . $langgananGambar) }}" alt="{{ $langgananGambar }}" class="gambar-langganan">
             <div class="desc w-100">
                 <p style="margin-right: 20px"> Price / Duration :     </p>

@@ -12,7 +12,8 @@ class RegrisController extends Controller
 {
     public function create()
     {
-        return view('regris');
+        $users = new User(); // Atau, Anda bisa membuat instance User sesuai kebutuhan aplikasi Anda
+        return view('regris', compact('users'));
     }
 
     public function index(){
@@ -45,10 +46,11 @@ class RegrisController extends Controller
             'telp' => $request->telp,
             'password' => Hash::make($request->password)
         ]);
+        $userId = $user->id;
 
         session()->flash('sukses', 'Terimakasih registrasi anda berhasil');
 
-        return redirect('/langganan')->with('success', 'Account berhasil disimpan.');
+        return redirect('/langganan?userId= ' . $userId)->with('success', 'Account berhasil disimpan.');
     }
 
 

@@ -18,6 +18,9 @@
         <h1>Registrasi Pemain Sepak Bola</h1>
          <form action="/regris" method="post">
              @csrf
+             <div class="petot" data-user-id="{{ $user->id ?? '' }}">
+                <!-- Konten petot lainnya -->
+            </div>
             <div class="mb-4">
                 <label for="nama" class="form-label" style="background-color: whitesmoke">Username</label>
                 <input type="text" name="nama" id="nama" class="form-control">
@@ -69,5 +72,18 @@
         </form>
     </div>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Temukan semua elemen card
+        const petots = document.querySelectorAll(".petot");
+
+        // Tambahkan event click ke setiap petot
+        petots.forEach(petot => {
+            petot.addEventListener("click", function() {
+                const userId = petot.getAttribute("data-user-id");
+            });
+        });
+    });
+    </script>
 
 @endsection

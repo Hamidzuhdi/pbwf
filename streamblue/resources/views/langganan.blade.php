@@ -9,13 +9,15 @@
 </head>
 <body>
     <div class="pilih">
+        <p>user id {{ $userId }}</p>
+        <div class="halow" data-user-id={{ $userId }}></div>
     @foreach($langganans as $langganan)
         <div class="card">
-            <div class="card-body" data-langganan-id={{ $langganan->id }}>
+            <div class="card-body" data-langganan-id={{ $langganan->id }} >
                 <p class="m-0">{{ $langganan->ket }} {{ $langganan->tipe ? '+ UCL' : '- UCL' }}</p>
             </div>
             <div class="card-header">
-                <a href="/pemesanan?langgananId={{ $langganan->id }}&langgananGambar={{ $langganan->gambar }}&langgananharga={{ $langganan->harga }}">
+                <a href="/pemesanan?langgananId={{ $langganan->id }}&userId={{ $userId }}&langgananGambar={{ $langganan->gambar }}&langgananharga={{ $langganan->harga }}">
                     <!-- Tambahkan atribut data dengan nilai gambar langganan -->
                     <img src="{{ asset('gambar/' . $langganan->gambar) }}" data-langganan-gambar="{{ $langganan->gambar }}" alt="{{ $langganan->gambar }}" class="gambar-langganan">
                 </a>
@@ -39,6 +41,7 @@
             pilih.addEventListener("click", function() {
                 // Dapatkan data langganan dan gambar dari pilih yang dipilih
                 const langgananId = pilih.querySelector(".pilih-body").getAttribute("data-langganan-id");
+                const userId = pilih.querySelector(".halow").getAttribute("data-user-id");
                 const langgananGambar = pilih.querySelector(".gambar-langganan").getAttribute("data-langganan-gambar");
                 const langgananharga = pilih.querySelector(".card .card-footer").getAttribute("data-langganan-harga");
 
