@@ -20,14 +20,16 @@
                     </div>
                 </a>
             </li>
-            <li class="navbar-item rounded {{Request::path() === 'admin/page/auser' ? "bg-info" : ""}} ">
-                <a href="/auser" class="">
-                    <div class="d-flex gap-3">
-                        <span class="material-icons">people_alt</span>
-                        <p class="m-0 p-0">User Management</p>
-                    </div>
-                </a>
-            </li>
+            @if (auth()->user()->role=='superadmin')
+                <li class="navbar-item rounded {{Request::path() === 'admin/page/auser' ? "bg-info" : ""}} ">
+                    <a href="/auser" class="">
+                        <div class="d-flex gap-3">
+                            <span class="material-icons">people_alt</span>
+                            <p class="m-0 p-0">User Management</p>
+                        </div>
+                    </a>
+                </li>
+            @endif
             <li class="navbar-item rounded {{Request::path() === 'admin/report' ? "bg-info" : ""}} ">
                 <a href="/apemesanan" class="">
                     <div class="d-flex gap-3">

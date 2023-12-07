@@ -22,7 +22,6 @@
         </div>
         <nav>
             <ul>
-                <li><a href="/live">watch live</a></li>
                 <li><a href="/">home</a></li>
                 <li><a href="/jadwal">Schedule</a></li>
                 @guest
@@ -39,6 +38,7 @@
                             </form>
                         </ul>
                     </li>
+                    <li><a href="/live">watch live</a></li>
                 @endguest
             </ul>
         </nav>
