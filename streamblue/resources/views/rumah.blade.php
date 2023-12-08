@@ -72,19 +72,19 @@
       <ul>
         <li>
           <a href="#">Lionel Messi</a>
-          <img src="images/lionel-messi.jpg" alt="Lionel Messi">
+          <img src="{{ asset('gambar/messiI.jpg') }}" alt="Lionel Messi">
         </li>
         <li>
           <a href="#">Cristiano Ronaldo</a>
-          <img src="images/cristiano-ronaldo.jpg" alt="Cristiano Ronaldo">
+          <img src="{{ asset('gambar/cr7A.jpg') }}" alt="Cristiano Ronaldo">
         </li>
         <li>
           <a href="#">Neymar</a>
-          <img src="images/neymar.jpg" alt="Neymar">
+          <img src="{{ asset('gambar/neymarA.jpg') }}" alt="Neymar">
         </li>
         <li>
           <a href="#">Kylian Mbappe</a>
-          <img src="images/kylian-mbappe.jpg" alt="Kylian Mbappe">
+          <img src="{{ asset('gambar/ambape.jpg') }}" alt="Kylian Mbappe">
         </li>
       </ul>
     </section>
@@ -93,15 +93,15 @@
       <ul>
         <li>
           <a href="#">Real Madrid Dapatkan Kylian Mbappe</a>
-          <img src="images/kylian-mbappe.jpg" alt="Kylian Mbappe">
+          <img src="{{ asset('gambar/MadridM.jpg') }}" alt="Kylian Mbappe">
         </li>
         <li>
           <a href="#">Barcelona Dapatkan Robert Lewandowski</a>
-          <img src="images/robert-lewandowski.jpg" alt="Robert Lewandowski">
+          <img src="{{ asset('gambar/barcaR.jpg') }}" alt="Robert Lewandowski">
         </li>
         <li>
           <a href="#">Manchester City Dapatkan Erling Haaland</a>
-          <img src="images/erling-haaland.jpg" alt="Erling Haaland">
+          <img src="{{ asset('gambar/cityH.jpg') }}" alt="Erling Haaland">
         </li>
       </ul>
     </section>

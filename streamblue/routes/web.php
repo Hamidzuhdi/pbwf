@@ -43,7 +43,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::group(['middleware' => ['auth','CekRolee:customer']], function(){
         // INI JADI 1 TRANSAKSI
     Route::get('/pemesanan',[PemesananController::class, 'index']);
-    Route::get('/live',[PemesananController::class, 'cuy']);
     Route::get('/tambapemesanan', [PemesananController::class, 'create']);
     Route::post('/pemesanan', [PemesananController::class, 'store']);
     Route::delete('/event/delete', [EventController::class, 'destroy']);

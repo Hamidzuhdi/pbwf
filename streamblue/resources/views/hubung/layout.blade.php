@@ -27,6 +27,7 @@
                 @guest
                     <li><a href="/regris">regris</a></li>
                 @else
+                <li><a href="/live">watch live</a></li>
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-target="#navbarDropdown" aria-expanded="false">
                             {{ Auth::user()->nama }}
@@ -38,7 +39,6 @@
                             </form>
                         </ul>
                     </li>
-                    <li><a href="/live">watch live</a></li>
                 @endguest
             </ul>
         </nav>
@@ -56,22 +56,22 @@
                 </div>
                 <div class="footer-links">
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="https://cybercampus.unair.ac.id/foto_mhs/434221027">About</a></li>
                         <li><a href="/langganan">Services</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="wa.me/+6285606163077">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 text-center text-lg-end my-auto">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item me-4 ml-10">
-                            <a href="#!"><i class="bi-facebook fs-3" id="fb"></i></a>
+                            <a href="https://www.facebook.com/hamid.wijanarko.7"><i class="bi-facebook fs-3" id="fb"></i></a>
                         </li>
                         <li class="list-inline-item me-4">
-                            <a href="#!"><i class="bi-twitter fs-3"></i></a>
+                            <a href="https://twitter.com/bjbvvy"><i class="bi-twitter fs-3"></i></a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#!"><i class="bi-instagram fs-3"></i></a>
+                            <a href="https://www.instagram.com/hamidzuhdi/?hl=en"><i class="bi-instagram fs-3"></i></a>
                         </li>
                     </ul>
                 </div>

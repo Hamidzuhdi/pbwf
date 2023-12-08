@@ -62,10 +62,7 @@
             <span class="nama_pertandingan">{{ $pertandingan->nama_pertandingan }}</span>
         </div>
         <p>Stadion: Stadion Utama</p>
-        <a href="/tampildatapertandingan/{{ $pertandingan->id }}/edit" class="btn btn-sm btn-primary">Edit</a>
     </div>
 @endforeach
 
-
-<a href="/admin/modal/addpertandingan" class="btn btn-sm btn-success" style="margin-left: 200px">Tambah Pertandingan Baru</a>
 @endsection
