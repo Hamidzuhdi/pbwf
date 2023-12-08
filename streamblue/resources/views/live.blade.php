@@ -30,7 +30,7 @@
                     <br>
                 </div>
                 <div>
-                    <a href="#">
+                    <a href="https://connect-id.beinsports.com/id">
                         <i class="bi bi-tv-fill"></i>
                     </a>
                 </div>
@@ -49,7 +49,7 @@
                     <br>
                 </div>
                 <div>
-                    <a href="#">
+                    <a href="https://connect-id.beinsports.com/id">
                         <i class="bi bi-tv-fill"></i>
                     </a>
                 </div>
@@ -68,12 +68,50 @@
                     <br>
                 </div>
                 <div>
-                    <a href="#">
+                    <a href="https://connect-id.beinsports.com/id">
                         <i class="bi bi-tv-fill"></i>
                     </a>
                 </div>
             </div>
-        @endif
+        @elseif ($pertandingan->liga == 'seri A')
+        <div>
+            <h6 class="liga">{{ $pertandingan->liga }}</h6>
+        </div>
+            <div class="Bungkus">
+                <div class="Pertama">
+                    <p class="tgl_pertandingan">{{ $pertandingan->tgl_pertandingan }}</p>
+                    <br>
+                </div>
+                <div class="P-Dua">
+                    <span class="nama_pertandingan">{{ $pertandingan->nama_pertandingan }}</span>
+                    <br>
+                </div>
+                <div>
+                    <a href="https://connect-id.beinsports.com/id">
+                        <i class="bi bi-tv-fill"></i>
+                    </a>
+                </div>
+            </div>
+            @elseif ($pertandingan->liga == 'league one')
+            <div>
+                <h6 class="liga">{{ $pertandingan->liga }}</h6>
+            </div>
+                <div class="Bungkus">
+                    <div class="Pertama">
+                        <p class="tgl_pertandingan">{{ $pertandingan->tgl_pertandingan }}</p>
+                        <br>
+                    </div>
+                    <div class="P-Dua">
+                        <span class="nama_pertandingan">{{ $pertandingan->nama_pertandingan }}</span>
+                        <br>
+                    </div>
+                    <div>
+                        <a href="https://connect-id.beinsports.com/id">
+                            <i class="bi bi-tv-fill"></i>
+                        </a>
+                    </div>
+                </div>
+                @endif
      @endforeach
 </body>
 

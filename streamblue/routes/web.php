@@ -36,30 +36,27 @@ Route::get('/login', [LoginController::class, 'create'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// Route::get('/live', function () {
-//     return view('live');
-// });
+       // INI JADI 1 TRANSAKSI
+       Route::get('/pemesanan',[PemesananController::class, 'index']);
+       Route::get('/tambapemesanan', [PemesananController::class, 'create']);
+       Route::post('/pemesanan', [PemesananController::class, 'store']);
+       Route::delete('/event/delete', [EventController::class, 'destroy']);
+       Route::get('/tampildatapemesanan/{id}/edit', [PemesananController::class, 'edit']);
+       Route::put('/tampildatapemesanan/{id}', [PemesananController::class, 'update']);
+
+       Route::get('/langganan',[LanggananController::class, 'index']);
+
+Route::get('/pembayaran',[PembayaranController::class, 'index']);
+
+// Route::get('/live',[PembayaranController::class, 'cuy']);
+Route::get('/tambapembayaran', [PembayaranController::class, 'create']);
+Route::post('/pembayaran', [PembayaranController::class, 'store']);
+Route::delete('/event/delete', [EventController::class, 'destroy']);
+// sampai sini
 
 Route::group(['middleware' => ['auth','CekRolee:customer']], function(){
-        // INI JADI 1 TRANSAKSI
-    Route::get('/pemesanan',[PemesananController::class, 'index']);
-    Route::get('/tambapemesanan', [PemesananController::class, 'create']);
-    Route::post('/pemesanan', [PemesananController::class, 'store']);
-    Route::delete('/event/delete', [EventController::class, 'destroy']);
-    Route::get('/tampildatapemesanan/{id}/edit', [PemesananController::class, 'edit']);
-    Route::put('/tampildatapemesanan/{id}', [PemesananController::class, 'update']);
-
-    Route::get('/langganan',[LanggananController::class, 'index']);
-
+    // ini doang cuy
     Route::get('/live',[PertandinganController::class, 'cuy']);
-
-    Route::get('/pembayaran',[PembayaranController::class, 'index']);
-
-    // Route::get('/live',[PembayaranController::class, 'cuy']);
-    Route::get('/tambapembayaran', [PembayaranController::class, 'create']);
-    Route::post('/pembayaran', [PembayaranController::class, 'store']);
-    Route::delete('/event/delete', [EventController::class, 'destroy']);
-    // sampai sini
 });
 
 Route::group(['middleware' => ['auth','CekRolee:superadmin,admin']], function(){

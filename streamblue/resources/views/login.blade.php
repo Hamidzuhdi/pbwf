@@ -1,15 +1,12 @@
-@extends('hubung.layout')
 
-@section('css4')
+
     <link rel="stylesheet" href="cantik/c-login.css">
-@endsection
 
-@section('sambung')
 <body>
     <main>
         <header>
             <div class="logo">
-                <img src="gambar/logo_UKM_Sepakbola.png" alt="UKM logo">
+                <img src="{{ asset('gambar/logo.jpeg') }}">
             </div>
         </header>
         <div class="container">
@@ -52,4 +49,4 @@
     </main>
 
     </body>
-@endsection
+

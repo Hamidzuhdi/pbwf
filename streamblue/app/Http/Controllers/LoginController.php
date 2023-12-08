@@ -25,9 +25,18 @@ class LoginController extends Controller
         $credentials = $request->only('mail', 'password');
 
         if (Auth::guard('user')->attempt($credentials)) {
-            // Jika autentikasi berhasil, alihkan ke halaman yang sesuai
-            $userId = Auth::user()->id;  // Menggunakan Auth::user() untuk mendapatkan user yang sedang login
-            return redirect('/langganan?userId=' . $userId)->with('success', 'Anda berhasil login.');
+            // Jika autentikasi berhasil
+            $user = Auth::user();
+
+            // Periksa apakah user sudah memiliki pemesanan_id
+            if ($user->pemesanan_id > 0) {
+                // Redirect ke halaman home jika sudah memiliki pemesanan_id
+                return redirect('/')->with('success', 'Anda berhasil login.');
+            } else {
+                // Redirect ke halaman langganan jika belum memiliki pemesanan_id
+                $userId = $user->id;
+                return redirect('/')->with('success', 'Anda berhasil login.');
+            }
         } else {
             // Jika autentikasi gagal, alihkan kembali ke halaman login
             throw ValidationException::withMessages([
@@ -35,6 +44,7 @@ class LoginController extends Controller
             ]);
         }
     }
+
 
     public function logout(Request $request)
     {
